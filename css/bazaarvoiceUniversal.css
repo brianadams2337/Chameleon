@@ -1,0 +1,160 @@
+behavior: url(includes/PIE-1.0.0/PIE.htc);
+
+@font-face {
+	font-family: 'Sosa';
+	src: url('../fonts/sosa-regular-webfont.eot');
+	src: url('../fonts/sosa-regular-webfont.woff') format('woff'),
+		url('../fonts/sosa-regular-webfont.ttf') format('truetype'),
+		url('../fonts/sosa-regular-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* STAR RATINGS */
+
+.BVOverallRatingStarsContainer {
+	position: relative;
+	display: block;
+	float: left;
+	width: 15%;
+	min-width: 100px;
+	height: auto;
+}
+
+.BVSecondaryRatingStarsContainer {
+	position: relative;
+	display: block;
+	float: left;
+	min-width: 75px;
+	height: auto;
+}
+
+._BVRatingStarsFilled {
+	position: absolute;
+	top: 0px;
+	overflow: hidden;
+}
+
+._BVRatingStarsUnfilled {
+	width: 100%;
+}
+
+._BVRatingStarsFilledImage, ._BVRatingStarsUnfilledImage {
+	width: 100%;
+	height: auto;
+}
+
+._BVRatingStarsText {
+	display: block;
+	position: absolute;
+	text-indent: -9999px;
+	z-index: -1;
+}
+
+._BVSecondaryRatingsContainer {
+	display: block;
+	overflow: hidden;
+	clear: both;
+	margin: 10px 0;
+	width: 100%;
+}
+
+.BVSecondaryRatingContainer {
+	float: left;
+	overflow: hidden;
+	margin-right: 10px;
+	width: 20%;
+}
+
+._BVRatingValue, .BVRatingSeparator, ._BVRatingRange {
+	float: left;
+	margin: 0 3px;
+}
+
+/* BASIC STYLES */
+
+._BVContentContainer {
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 14px;
+}
+
+._BVReviewTitle {
+	clear: left;
+}
+
+._BVReviewTitleText {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+._BVReviewDateContainer {
+	font-size: 12px;
+	font-style: italic;
+}
+
+._BVReviewContextDataValuesContainer {
+	display: block;
+	overflow: hidden;
+	clear: both;
+	margin: 10px 0;
+}
+
+.BVContextDataValueContainer {
+	float: left;
+	margin-right: 30px;
+}
+
+._BVContextDataValueLabelText {
+	font-weight: bold;
+}
+
+._BVReviewTagsContainer {
+	display: block;
+	overflow: hidden;
+	clear: both;
+	margin: 10px 0;
+}
+
+.BVTagContainer {
+	float: left;
+	margin-right: 10px;
+}
+
+._BVTagLabelText {
+	font-weight: bold;
+}
+
+._BVReviewPhotosContainer {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+._BVPhotoThumbnail {
+	float: left;
+	clear: none;
+	margin-right: 5px;
+}
+
+#BVRRContainer {
+	background: url(../images/bvLoading.gif) no-repeat center #eeeeee;
+	min-height: 50px;
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+._BVReviewContainer {
+	background: #ffffff;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+/* BUTTONS */
+
+._BVQuickTakeContainer {
+	overflow: hidden;
+}
+.BVButtonWriteReview {
+	float: right;
+}
