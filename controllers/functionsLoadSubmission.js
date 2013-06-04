@@ -19,157 +19,163 @@ function loadReviewSubmissionForm (content, options) {
 			"inputOptionsArray":content["Options"]
 		}
 	}, options);
+	$(settings["targetContainer"]).hide();
 	// get a new id for the submission container using product id - this will be needed for reference on child elements
 	var newID = "BVSubmissionContainerID" + settings["productId"];
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'get',
-		dataType: 'html',
-		async: false,
-		success: function(container) {
-			var $container = $(container);
-			// set string varable with new id to use as reference
-			containerId = "#" + newID;
-			// add submission container
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).attr("id", newID));
-			// set form attributes
-			$($container).attr({
-				"id":newID,
-				"name":newID,
-				"action":"formprocess.php?productId=" + settings["productId"],
-				"method":"POST",
-				"enctype":"application/x-www-form-urlencoded",
-				"autocomplete":"on",
-				"accept-charset":"UTF-8",
-				"target":"_self"
-			});
-			// headers
-			loadPageHeader ("Page HEADER!");
-			loadSectionHeader ("Ratings Section", {
-				"targetContainer":"._BVSectionHeaderRatingsContainer"
-			});
-			loadSectionHeader ("Review Section", {
-				"targetContainer":"._BVSectionHeaderReviewContainer"
-			});
-			// inputs
-			// overall rating
-			loadOverallRatingInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"Overall Rating"
-				}
-			});
-			// is recommended
-			loadIsRecommendedInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"Would you recommend this product?"
-				}
-			});
-			// review title
-			loadReviewTitleInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"Review Title"
-				}
-			});
-			// review text
-			loadReviewTextInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"Review Text"
-				}
-			});
-			// nickname
-			loadUserNicknameInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"User Nickname",
-				}
-			});
-			// email
-			loadUserEmailInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"User Email",
-				}
-			});
-			// location
-			loadUserLocationInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"User Location",
-				}
-			});
-			// user id
-			loadUserIDInput (content, {
-				"parentContainer":$container,
-				"inputSettings":{
-					"inputLabel":"User Id",
-					"inputName":"userid"
-				}
-			});
-			// device fingerprint
-			console.log("devicefingerprint");
-			// product id
-			console.log("productid");
-			// submission id
-			console.log("submissionid");
-			// auth source type
-			console.log("authsourcetype");
-			// is ratings only
-			console.log("isratingsonly");
-			// net promoter score
-			console.log("netpromoterscore");
-			// net promoter comment
-			console.log("netpromotercomment");
+	$.when(
+		$.ajax({
+			url: settings["viewContainer"],
+			type: 'get',
+			dataType: 'html',
+			async: false,
+			success: function(container) {
+				var $container = $(container);
+				// set string varable with new id to use as reference
+				containerId = "#" + newID;
+				// add submission container
+				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).attr("id", newID));
+				// set form attributes
+				$($container).attr({
+					"id":newID,
+					"name":newID,
+					"action":"formprocess.php?productId=" + settings["productId"],
+					"method":"POST",
+					"enctype":"application/x-www-form-urlencoded",
+					"autocomplete":"on",
+					"accept-charset":"UTF-8",
+					"target":"_self"
+				});
+				// headers
+				loadPageHeader ("Page HEADER!");
+				loadSectionHeader ("Ratings Section", {
+					"targetContainer":"._BVSectionHeaderRatingsContainer"
+				});
+				loadSectionHeader ("Review Section", {
+					"targetContainer":"._BVSectionHeaderReviewContainer"
+				});
+				// inputs
+				// overall rating
+				loadOverallRatingInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"Overall Rating"
+					}
+				});
+				// is recommended
+				loadIsRecommendedInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"Would you recommend this product?"
+					}
+				});
+				// review title
+				loadReviewTitleInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"Review Title"
+					}
+				});
+				// review text
+				loadReviewTextInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"Review Text"
+					}
+				});
+				// nickname
+				loadUserNicknameInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"User Nickname",
+					}
+				});
+				// email
+				loadUserEmailInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"User Email",
+					}
+				});
+				// location
+				loadUserLocationInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"User Location",
+					}
+				});
+				// user id
+				loadUserIDInput (content, {
+					"parentContainer":$container,
+					"inputSettings":{
+						"inputLabel":"User Id",
+						"inputName":"userid"
+					}
+				});
+				// device fingerprint
+				console.log("devicefingerprint");
+				// product id
+				console.log("productid");
+				// submission id
+				console.log("submissionid");
+				// auth source type
+				console.log("authsourcetype");
+				// is ratings only
+				console.log("isratingsonly");
+				// net promoter score
+				console.log("netpromoterscore");
+				// net promoter comment
+				console.log("netpromotercomment");
 
-			// context data values
-			loadContextDataValueGroupInput (content, {
-				"parentContainer":$container
-			});
-			// additional fields
-			loadAdditionalFieldGroupInput (content, {
-				"parentContainer":$container
-			});
-			// secondary ratings
-			loadSecondaryRatingGroup (content, {
-				"parentContainer":$container
-			});
-			// photo upload
-			console.log("photoupload");
-			// video upload
-			console.log("videoupload");
-			// product recommendations
-			console.log("productrecommendations");
-			// tags
-			loadTagGroupInput (content, {
-				"parentContainer":$container
-			});
-			// user location geocode
-			console.log("userlocationgeocode");
-			// hosted authentication
-			console.log("hostedauthentication");
+				// context data values
+				loadContextDataValueGroupInput (content, {
+					"parentContainer":$container
+				});
+				// additional fields
+				loadAdditionalFieldGroupInput (content, {
+					"parentContainer":$container
+				});
+				// secondary ratings
+				loadSecondaryRatingGroup (content, {
+					"parentContainer":$container
+				});
+				// photo upload
+				console.log("photoupload");
+				// video upload
+				console.log("videoupload");
+				// product recommendations
+				console.log("productrecommendations");
+				// tags
+				loadTagGroupInput (content, {
+					"parentContainer":$container
+				});
+				// user location geocode
+				console.log("userlocationgeocode");
+				// hosted authentication
+				console.log("hostedauthentication");
 
-			// buttons
-			/*loadTermsAndConditionsInput (content, {
-				"parentContainer":$container
-			});
-			loadSendEmailAlertWhenPublishedInput (content, {
-				"parentContainer":$container
-			});
-			loadSendEmailAlertWhenCommentedInput (content, {
-				"parentContainer":$container
-			});*/
-			loadSubmitButton ("submit");
-			loadPreviewButton ("preview");
-			loadCancelButton ("cancel", {
-				"returnURL":settings["returnURL"]
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
+				// buttons
+				/*loadTermsAndConditionsInput (content, {
+					"parentContainer":$container
+				});
+				loadSendEmailAlertWhenPublishedInput (content, {
+					"parentContainer":$container
+				});
+				loadSendEmailAlertWhenCommentedInput (content, {
+					"parentContainer":$container
+				});*/
+				loadSubmitButton ("submit");
+				loadPreviewButton ("preview");
+				loadCancelButton ("cancel", {
+					"returnURL":settings["returnURL"]
+				});
+			},
+			error: function(e) {
+				defaultAjaxErrorFunction(e);
+			}
+		})
+	).done(function(){
+		$(settings["targetContainer"]).show();
+		$(settings["parentContainer"]).removeClass("_BVContentLoadingContainer");
 	});
 }
 
@@ -770,7 +776,7 @@ function loadAdditionalFieldGroupInput (content, options) {
 	});
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
-		"targetContainer":defaultAdditionalFieldsInputContainer,
+		"targetContainer":defaultAdditionalFieldGroupInputContainer,
 		"viewContainer":defaultAdditionalFieldContainerView,
 		"loadOrder":defaultLoadOrder,
 		"productId":"",
@@ -808,7 +814,7 @@ function loadAdditionalFieldIndividualInput (content, options) {
 	// content is expecting ["Data"]["Fields"][<contextdatavalue_Value>]
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
-		"targetContainer":defaultAdditionalFieldInputContainer,
+		"targetContainer":defaultAdditionalFieldIndividualInputContainer,
 		"viewContainer":defaultInputContainerView,
 		"loadOrder":"",
 		"productId":"",
@@ -967,7 +973,7 @@ function loadContextDataValueGroupInput (content, options) {
 	});
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
-		"targetContainer":defaultContextDataValuesInputContainer,
+		"targetContainer":defaultContextDataValueGroupInputContainer,
 		"viewContainer":defaultContextDataValueContainerView,
 		"loadOrder":defaultLoadOrder,
 		"productId":"",
@@ -1005,7 +1011,7 @@ function loadContextDataValueIndividualInput (content, options) {
 	// content is expecting ["Data"]["Fields"][<contextdatavalue_Value>]
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
-		"targetContainer":defaultContextDataValueInputContainer,
+		"targetContainer":defaultContextDataValueIndividualInputContainer,
 		"viewContainer":defaultInputContainerView,
 		"loadOrder":"",
 		"productId":"",
@@ -1357,7 +1363,7 @@ function loadSendEmailAlertWhenPublishedInput (content, options) {
 function loadCheckboxInputGroup (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer, // needs to be given a more specific container if called more than once
-		"targetContainer":defaultCheckboxesInputContainer,
+		"targetContainer":defaultCheckboxGroupInputContainer,
 		"viewContainer":defaultInputCheckboxIndividualContainerView,
 		"loadOrder":"", // this must be defined in the call
 		"productId":"",

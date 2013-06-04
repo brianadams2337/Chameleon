@@ -13,71 +13,72 @@ var defualtSectionHeaderTextContainer = "._BVSectionHeaderText"
 
 /* RATINGS */
 var defaultOverallRatingContainer = "._BVOverallRatingContainer"; // overall rating container
+var defaultOverallRatingLabelTextContainer = "._BVRatingLabelText";
 var defaultOverallRatingValueContainer = "._BVRatingValue";
 var defaultOverallRatingRangeContainer = "._BVRatingRange";
 
-var defaultSecondaryRatingsContainer = "._BVSecondaryRatingsContainer"; // secondary ratings container
-var defaultSecondaryRatingLabelTextContainer = "._BVSecondaryRatingLabelText";
+var defaultSecondaryRatingGroupContainer = "._BVSecondaryRatingsContainer"; // secondary ratings container
+var defaultSecondaryRatingLabelTextContainer = "._BVRatingLabelText";
 var defaultSecondaryRatingValueContainer = "._BVRatingValue";
 var defaultSecondaryRatingRangeContainer = "._BVRatingRange";
 
 /* REVIEW CONTENT */
-var defaultReviewTitleContainer = "._BVReviewTitleContainer"; // review title container
-var defaultReviewTitleTextContainer = "._BVReviewTitleText";
-var defaultReviewTextContainer = "._BVReviewTextContainer"; // review text container
-var defaultReviewTextTextContainer = "._BVReviewText";
-var defaultReviewDateContainer = "._BVReviewDateContainer"; // review date container
-var defaultReviewDateTextContainer = "._BVReviewDateText";
+var defaultReviewTitleContainer = "._BVTitleContainer"; // review title container
+var defaultReviewTitleTextContainer = "._BVTitleText"; // review title text
+var defaultReviewBodyTextContainer = "._BVBodyTextContainer"; // review body text container
+var defaultReviewBodyTextTextContainer = "._BVBodyText"; // review body text
+var defaultReviewDateContainer = "._BVDateContainer"; // review date container
+var defaultReviewDateTextContainer = "._BVDateText"; // review date text
 
-var defaultRecommendedAverageContainer = "._BVReviewRecommendedContainerAverage"; // is recommended container average
-var defaultReviewRecommendedContainer = "._BVReviewRecommendedContainer"; // is recommended container
+var defaultRecommendedAverageContainer = "._BVRecommendedContainerAverage"; // is recommended container average
+var defaultReviewRecommendedContainer = "._BVRecommendedContainer"; // is recommended container
 var defaultIsRecommendedValueContainer = "._BVIsRecommendedValue";
 
 /* TAGS */
-var defaultReviewTagsContainer = "._BVReviewTagsContainer"; // all tags container
-var defaultReviewTagContainer = "._BVTagsContainer"; // individual tag container
+var defaultReviewTagGroupContainer = "._BVTagGroupContainer"; // all tags container
+var defaultReviewTagIndividualContainer = "._BVTagIndividualContainer"; // individual tag container
 var defaultReviewTagLabelTextContainer = "._BVTagLabelText";
 var defaultReviewTagTextContainer = "._BVTagText";
 
 /* USER INFO */
-var defaultReviewUserNicknameContainer = "._BVReviewUserNicknameContainer"; // user nickname container
+var defaultReviewUserNicknameContainer = "._BVUserNicknameContainer"; // user nickname container
 var defaultReviewUserNicknameTextContainer = "._BVReviewUserNicknameText";
-var defaultReviewUserLocationContainer = "._BVReviewUserLocationContainer"; // user location container
+var defaultReviewUserLocationContainer = "._BVUserLocationContainer"; // user location container
 var defaultReviewUserLocationTextContainer = "._BVReviewUserLocationText";
 
 /* CDVs */
-var defaultReviewContextDataValuesContainer = "._BVReviewContextDataValuesContainer"; // context data values container
+var defaultReviewContextDataValueGroupContainer = "._BVContextDataValueGroupContainer"; // context data values container
 var defaultReviewContextDataValueLabelTextContainer = "._BVContextDataValueLabelText";
 var defaultReviewContextDataValueTextContainer = "._BVContextDataValueText";
 
 /* ADDITIONAL FIELDS */
-var defaultReviewAdditionalFieldsContainer = "._BVReviewAdditionalFieldsContainer"; // additional fields container
+var defaultReviewAdditionalFieldGroupContainer = "._BVAdditionalFieldGroupContainer"; // additional fields container
 var defaultReviewAdditionalFieldLabelTextContainer = "._BVAdditionalFieldsLabelText";
 var defaultReviewAdditionalFieldTextContainer = "._BVAdditionalFieldsValueText";
 
 /* MEDIA */
-var defaultReviewPhotosContainer = "._BVReviewPhotosContainer"; // photos container
+var defaultReviewPhotoGroupContainer = "._BVPhotoGroupContainer"; // photos container
 var defaultReviewPhotoThumbnailContainer = "._BVPhotoThumbnail";
-var defaultReviewPhotoContainer = "._BVPhotoNormal";
+var defaultReviewPhotoIndividualContainer = "._BVPhotoNormal";
 var defaultReviewPhotoCaptionContainer = "._BVPhotoCaption";
-var defaultReviewVideosContainer = "._BVReviewVideosContainer"; // videos container
+var defaultReviewVideoGroupContainer = "._BVVideoGroupContainer"; // videos container
 var defaultReviewVideoThumbnailContainer = "._BVVideoThumbnail";
-var defaultReviewVideoContainer = "._BVVideoNormal";
+var defaultReviewVideoIndividualContainer = "._BVVideoNormal";
 var defaultReviewVideoCaptionContainer = "._BVVideoCaption";
 
 /* FEEDBACK (helpfulness voting) */
-var defaultReviewFeedbackContainer = "._BVReviewFeedbackContainer"; // all feedback (count and feedback) container
-var defaultReviewFeedbackCountContainer = "._BVReviewFeedbackCountContainer"; // feedback count container
+var defaultReviewFeedbackContainer = "._BVFeedbackContainer"; // all feedback (count and feedback) container
+var defaultReviewFeedbackCountContainer = "._BVFeedbackCountContainer"; // feedback count container
 var defaultReviewFeedbackCountPositiveContainer = "._BVFeedbackPositiveCountValue";
 var defaultReviewFeedbackCountTotalContainer = "._BVFeedbackTotalCountValue";
 var defaultReviewFeedbackCountPercentageContainer = "._BVReviewFeedbackCountContainer";
-var defaultReviewFeedbackVotingContainer = "._BVReviewFeedbackVotingContainer"; // feedback voting container
+var defaultReviewFeedbackVotingContainer = "._BVFeedbackVotingContainer"; // feedback voting container
 var defaultReviewFeedbackVotingButtonContainer = "._BVReviewFeedbackVotingButtonContainer"; // feedback voting button container
 var defaultReviewFeedbackVotingButtonPositiveContainer = "._BVFeedbackPositiveButton";
 var defaultReviewFeedbackVotingButtonNegativeContainer = "._BVFeedbackNegativeButton";
 
 /* REPORT INAPPROPRIATE */
-var defaultReviewReportInappropriateContainer = "._BVReviewReportInappropriateContainer"; // inapropriate content container
+var defaultReviewReportInappropriateContainer = "._BVReportInappropriateContainer"; // inapropriate content container
 
 /* BUTTONS */
 var defaultButtonWriteReviewContainer = "._BVButtonWriteReviewContainer"; // write review button
@@ -94,29 +95,29 @@ var defaultSubmissionContainer = "._BVSubmissionContainer"; // main submission c
 var defaultSubmissionFormContainer = "._BVSubmissionFormContainer"; // main form inside submissio container
 
 var defaultOverallRatingInputContainer = "._BVOverallRatingInputContainer"; // overall rating input
-var defaultSecondaryRatingGroupInputContainer = "._BVSecondaryRatingsInputContainer"; // secondary rating input group
+var defaultSecondaryRatingGroupInputContainer = "._BVSecondaryRatingGroupInputContainer"; // secondary rating input group
 var defaultSecondaryRatingIndividualInputContainer = "._BVSecondaryRatingIndividualInputContainer"; // secondary rating input individual
 var defaultIsRecommendedInputContainer = "._BVRecommendedInputContainer"; // is recommended input
-var defaultReviewTitleInputContainer = "._BVReviewTitleInputContainer"; // review title input
-var defaultReviewTextInputContainer = "._BVReviewTextInputContainer"; // review text input
+var defaultReviewTitleInputContainer = "._BVTitleInputContainer"; // review title input
+var defaultReviewTextInputContainer = "._BVBodyTextInputContainer"; // review text input
 
 var defaultUserNicknameInputContainer = "._BVUserNicknameInputContainer"; // user nickname text input
 var defaultUserEmailInputContainer = "._BVUserEmailInputContainer"; // user email text input
 var defaultUserLocationInputContainer = "._BVUserLocationInputContainer"; // user location text input
 var defaultUserIdInputContainer = "._BVUserIdInputContainer"; // user id text input
 
-var defaultContextDataValuesInputContainer = "._BVReviewContextDataValuesInputContainer"; // context data values container
-var defaultContextDataValueInputContainer = "._BVContextDataValueContainer"; // individual context data value container
+var defaultContextDataValueGroupInputContainer = "._BVContextDataValueGroupInputContainer"; // context data values container
+var defaultContextDataValueIndividualInputContainer = "._BVContextDataValueIndividualInputContainer"; // individual context data value container
 
-var defaultAdditionalFieldsInputContainer = "._BVReviewAdditionalFieldsInputContainer"; // context data values container
-var defaultAdditionalFieldInputContainer = "._BVAdditionalFieldContainer"; // individual context data value container
+var defaultAdditionalFieldGroupInputContainer = "._BVAdditionalFieldGroupInputContainer"; // context data values container
+var defaultAdditionalFieldIndividualInputContainer = "._BVAdditionalFieldIndividualInputContainer"; // individual context data value container
 
 var defaultFormInputContainer = "._BVFormInput"; // form input container
 var defaultFormInputWrapperContainer = "._BVFormInputWrapper"; // form input wrapper container
 
-var defaultRadioButtonGroupInputContainer = "._BVRadioButtonsContainer"; // radio buttons container
-var defaultRadioButtonIndividualInputContainer = "._BVRadioButtonContainer"; // radio buttons container
-var defaultCheckboxesInputContainer = "._BVCheckboxesContainer"; // checkboxes container
+var defaultRadioButtonGroupInputContainer = "._BVRadioButtonGroupContainer"; // radio button group container
+var defaultRadioButtonIndividualInputContainer = "._BVRadioButtonIndividualContainer"; // radio button individual container
+var defaultCheckboxGroupInputContainer = "._BVCheckboxGroupContainer"; // checkbox group container
 var defaultFormSelectInputContainer = "._BVFormSelectInput"; // select input
 var defaultFormSelectOptionInputContainer = "._BVFormSelectOptionInput"; // option input
 
@@ -131,7 +132,7 @@ var defaultFormHelperTextContainer = "._BVHelperText"; // input helper text
 /* MAIN TEMPLATES */
 
 // quick take module
-var defaultQuickTakeContainerView = pathView("reviewQuickTakeContainer.html");
+var defaultQuickTakeContainerView = pathView("quickTakeContainer.html");
 // individual review module
 var defaultReviewContainerView = pathView("reviewContainer.html");
 var defaultPageHeaderContainerView = pathView("headerPageContainer.html");
@@ -142,22 +143,22 @@ var defaultSectionHeaderContainerView = pathView("headerSectionContainer.html");
 // overall rating module
 var defaultOverallRatingContainerView = pathView("overallRatingContainer.html");
 // secondary rating module
-var defaultSecondaryRatingsContainerView = pathView("secondaryRatingContainer.html");
+var defaultSecondaryRatingIndividualContainerView = pathView("secondaryRatingIndividualContainer.html");
 // review title module
-var defaultReviewTitleContainerView = pathView("reviewTitleContainer.html");
+var defaultReviewTitleContainerView = pathView("titleContainer.html");
 // review text module
-var defaultReviewTextContainerView = pathView("reviewTextContainer.html");
+var defaultReviewBodyTextContainerView = pathView("bodyTextContainer.html");
 // date module
 var defaultReviewDateContainerView = pathView("dateContainer.html");
 // is recommended module
-var defaultReviewRecommededContainerView = pathView("reviewRecommendedContainer.html");
+var defaultReviewRecommededContainerView = pathView("recommendedContainer.html");
 
 /* TAGS TEMPLATES */
 
 // all tags module
-var defaultReviewTagsContainerView = pathView("reviewTagsContainer.html");
+var defaultReviewTagsContainerView = pathView("tagGroupContainer.html");
 // individual tag module
-var defaultReviewTagContainerView = pathView("reviewTagContainer.html");
+var defaultReviewTagContainerView = pathView("tagIndividualContainer.html");
 
 /* NICKNAME TEMPLATES */
 
@@ -172,33 +173,33 @@ var defaultReviewUserLocationContainerView = pathView("locationContainer.html");
 /* CDVs TEMPLATES */
 
 // context data values module
-var defaultReviewContextDataValueContainerView = pathView("reviewContextDataValueContainer.html");
+var defaultReviewContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html");
 
 /* ADDITIONAL FIELDS TEMPLATES */
 
 // additional fields module
-var defaultReviewAdditionalFieldContainerView = pathView("reviewAdditionalFieldContainer.html");
+var defaultReviewAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html");
 
 /* MEDIA TEMPLATES */
 
 // photos module
-var defaultReviewPhotoContainerView = pathView("reviewPhotoContainer.html");
+var defaultReviewPhotoContainerView = pathView("photoThumbnailContainer.html");
 // videos module
-var defaultReviewVideoContainerView = pathView("reviewVideoContainer.html");
+var defaultReviewVideoContainerView = pathView("videoThumbnailContainer.html");
 
 /* FEEDBACK TEMPLATES */
 
 // all feedback (count and voting) module
-var defaultReviewFeedbackContainerView = pathView("reviewFeedbackContainer.html");
+var defaultReviewFeedbackContainerView = pathView("feedbackContainer.html");
 // feedback count module
-var defaultReviewFeedbackCountContainerView = pathView("reviewFeedbackCountContainer.html");
+var defaultReviewFeedbackCountContainerView = pathView("feedbackCountContainer.html");
 // feedback voting module
-var defaultReviewFeedbackVotingContainerView = pathView("reviewFeedbackVotingContainer.html");
+var defaultReviewFeedbackVotingContainerView = pathView("feedbackVotingContainer.html");
 
 /* INAPPROPRIATE CONTENT TEMPLATES */
 
 // inappropriate content module
-var defaultReviewReportInappropriateContainerView = pathView("reviewReportInappropriateContainer.html");
+var defaultReviewReportInappropriateContainerView = pathView("reportInappropriateContainer.html");
 
 /* BUTTONS */
 

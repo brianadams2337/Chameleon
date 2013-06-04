@@ -69,9 +69,10 @@ function loadReviews (content, options) {
 		})
 	).done(function(){
 		$(settings["targetContainer"]).show();
+		$(settings["parentContainer"]).removeClass("_BVContentLoadingContainer");
+		addOddEvenClasses (defaultReviewContainer);
+		addFirstLastClasses (defaultReviewContainer);
 	});
-	addOddEvenClasses (defaultReviewContainer);
-	addFirstLastClasses (defaultReviewContainer);
 }
 
 /* DEFAULT QUICKTAKE FUNCTION */
@@ -110,6 +111,7 @@ function loadQuickTake (content, options) {
 		})
 	).done(function(){
 		$(settings["targetContainer"]).show();
+		$(settings["parentContainer"]).removeClass("_BVContentLoadingContainer");
 	});
 }
 
@@ -197,16 +199,20 @@ function loadReviewRating (content, options) {
 		success: function(container) {
 			var $container = $(container);
 			// variables
-			var ratingValue = content['Rating'];
-			var ratingRange = content['RatingRange'];
+			var id = "Overall";				
+			var value = content['Rating'];
+			var valueRange = content['RatingRange'];
+			var labelText = "Overall Rating";
+			// set rating label (title)
+			$container.find(defaultOverallRatingLabelTextContainer).andSelf().filter(defaultOverallRatingLabelTextContainer).text(labelText);
 			// set rating value
-			$container.find(defaultOverallRatingValueContainer).andSelf().filter(defaultOverallRatingValueContainer).text(ratingValue);
+			$container.find(defaultOverallRatingValueContainer).andSelf().filter(defaultOverallRatingValueContainer).text(value);
 			// set rating range value
-			$container.find(defaultOverallRatingRangeContainer).andSelf().filter(defaultOverallRatingRangeContainer).text(ratingRange);
+			$container.find(defaultOverallRatingRangeContainer).andSelf().filter(defaultOverallRatingRangeContainer).text(valueRange);
 			// add rating template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 			// set star value
-			setStarRating ($container, ratingValue, ratingRange);
+			setStarRating ($container, value, valueRange);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -217,8 +223,8 @@ function loadReviewRating (content, options) {
 function loadReviewSecondaryRatings (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultSecondaryRatingsContainer,
-		"viewContainer":defaultSecondaryRatingsContainerView,
+		"targetContainer":defaultSecondaryRatingGroupContainer,
+		"viewContainer":defaultSecondaryRatingIndividualContainerView,
 		"loadOrder":content["SecondaryRatingsOrder"],
 		"productId":""
 	}, options);
@@ -292,8 +298,8 @@ function loadReviewTitle (content, options) {
 function loadReviewBody (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewTextContainer,
-		"viewContainer":defaultReviewTextContainerView,
+		"targetContainer":defaultReviewBodyTextContainer,
+		"viewContainer":defaultReviewBodyTextContainerView,
 		"loadOrder":"",
 		"productId":""
 	}, options);
@@ -306,7 +312,7 @@ function loadReviewBody (content, options) {
 			// set variables
 			var reviewTextValue = content['ReviewText'];
 			// set title value
-			$container.find(defaultReviewTextTextContainer).andSelf().filter(defaultReviewTextTextContainer).text(reviewTextValue);
+			$container.find(defaultReviewBodyTextTextContainer).andSelf().filter(defaultReviewBodyTextTextContainer).text(reviewTextValue);
 			// add title template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 		},
@@ -384,7 +390,7 @@ function loadReviewRecommended (content, options) {
 function loadReviewTagGroups (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewTagsContainer,
+		"targetContainer":defaultReviewTagGroupContainer,
 		"viewContainer":defaultReviewTagsContainerView,
 		"loadOrder":content["TagDimensionsOrder"],
 		"productId":""
@@ -422,8 +428,8 @@ function loadReviewTagGroups (content, options) {
 
 function loadReviewTags (content, options) {
 	var settings = $.extend(true, {
-		"parentContainer":defaultReviewTagsContainer,
-		"targetContainer":defaultReviewTagContainer,
+		"parentContainer":defaultReviewTagGroupContainer,
+		"targetContainer":defaultReviewTagIndividualContainer,
 		"viewContainer":defaultReviewTagContainerView,
 		"loadOrder":content,
 		"productId":""
@@ -510,7 +516,7 @@ function loadReviewUserLocation (content, options) {
 function loadReviewContextDataValues (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewContextDataValuesContainer,
+		"targetContainer":defaultReviewContextDataValueGroupContainer,
 		"viewContainer":defaultReviewContextDataValueContainerView,
 		"loadOrder":content["ContextDataValuesOrder"],
 		"productId":""
@@ -550,7 +556,7 @@ function loadReviewContextDataValues (content, options) {
 function loadReviewAdditionalFieldsGroups (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewAdditionalFieldsContainer,
+		"targetContainer":defaultReviewAdditionalFieldGroupContainer,
 		"viewContainer":defaultReviewAdditionalFieldContainerView,
 		"loadOrder":content["AdditionalFieldsOrder"],
 		"productId":""
@@ -590,7 +596,7 @@ function loadReviewAdditionalFieldsGroups (content, options) {
 function loadReviewPhotos (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewPhotosContainer,
+		"targetContainer":defaultReviewPhotoGroupContainer,
 		"viewContainer":defaultReviewPhotoContainerView,
 		"loadOrder":content["Photos"],
 		"productId":""
@@ -620,7 +626,7 @@ function loadReviewPhotos (content, options) {
 				// set thumbnail
 				$container.find(defaultReviewPhotoThumbnailContainer).andSelf().filter(defaultReviewPhotoThumbnailContainer).html(thumbnail).attr({"href":photoUrl,"title":captionText});
 				// set photo
-				//$container.find(defaultReviewPhotoContainer).andSelf().filter(defaultReviewPhotoContainer).html(photo);
+				//$container.find(defaultReviewPhotoIndividualContainer).andSelf().filter(defaultReviewPhotoIndividualContainer).html(photo);
 				// set caption
 				//$container.find(defaultReviewPhotoCaptionContainer).andSelf().filter(defaultReviewPhotoCaptionContainer).text(captionText);
 				// add CDVs container template
@@ -636,7 +642,7 @@ function loadReviewPhotos (content, options) {
 function loadReviewVideos (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
-		"targetContainer":defaultReviewVideosContainer,
+		"targetContainer":defaultReviewVideoGroupContainer,
 		"viewContainer":defaultReviewVideoContainerView,
 		"loadOrder":content["Videos"],
 		"productId":""
@@ -666,7 +672,7 @@ function loadReviewVideos (content, options) {
 				// set thumbnail
 				$container.find(defaultReviewVideoThumbnailContainer).andSelf().filter(defaultReviewVideoThumbnailContainer).html(thumbnail);
 				// set photo
-				$container.find(defaultReviewVideoContainer).andSelf().filter(defaultReviewVideoContainer).html(photo);
+				$container.find(defaultReviewVideoIndividualContainer).andSelf().filter(defaultReviewVideoIndividualContainer).html(video);
 				// set caption
 				$container.find(defaultReviewVideoCaptionContainer).andSelf().filter(defaultReviewVideoCaptionContainer).text(captionText);
 				// add CDVs container template

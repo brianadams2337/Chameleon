@@ -22,8 +22,8 @@ $(document).ready(function() {
 		$("head").append("<link href='http://localhost:8888/Chameleon/css/bazaarvoiceUniversal.css' type='text/css' rel='stylesheet' />"),
 		$("head").append("<link href='http://localhost:8888/Chameleon/css/magnific-popup.css' type='text/css' rel='stylesheet' />"),
 
-		$.Deferred(function( deferred ){
-			$( deferred.resolve );
+		$.Deferred(function(deferred){
+			$(deferred.resolve);
 		})
 	).done(function(){
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
 			"Parameters":{
 				"Filter":{
 					//"IsFeatured":false,
-					"HasPhotos":true
+					//"HasPhotos":true
 				}
 			}
 		});

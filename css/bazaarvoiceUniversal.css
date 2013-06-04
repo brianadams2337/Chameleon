@@ -12,8 +12,7 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 
 /* STAR RATINGS */
 
-.BVOverallRatingStarsContainer {
-	position: relative;
+.BVOverallRatingContainer ._BVRatingStarsContainer {
 	display: block;
 	float: left;
 	width: 15%;
@@ -21,22 +20,11 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	height: auto;
 }
 
-.BVSecondaryRatingStarsContainer {
-	position: relative;
+.BVSecondaryRatingContainer ._BVRatingStarsContainer {
 	display: block;
 	float: left;
 	min-width: 75px;
 	height: auto;
-}
-
-._BVRatingStarsFilled {
-	position: absolute;
-	top: 0px;
-	overflow: hidden;
-}
-
-._BVRatingStarsUnfilled {
-	width: 100%;
 }
 
 ._BVRatingStarsFilledImage, ._BVRatingStarsUnfilledImage {
@@ -73,26 +61,30 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 
 /* BASIC STYLES */
 
-._BVContentContainer {
+#BVRRContainer {
+	background: #eeeeee;
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 14px;
 }
 
-._BVReviewTitle {
+._BVTitleContainer {
 	clear: left;
 }
 
-._BVReviewTitleText {
+._BVTitleText {
 	font-size: 18px;
 	font-weight: bold;
 }
 
-._BVReviewDateContainer {
+._BVDateContainer {
 	font-size: 12px;
 	font-style: italic;
 }
 
-._BVReviewContextDataValuesContainer {
+._BVContextDataValueGroupContainer {
 	display: block;
 	overflow: hidden;
 	clear: both;
@@ -108,7 +100,7 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	font-weight: bold;
 }
 
-._BVReviewTagsContainer {
+._BVTagGroupContainer {
 	display: block;
 	overflow: hidden;
 	clear: both;
@@ -124,7 +116,7 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	font-weight: bold;
 }
 
-._BVReviewPhotosContainer {
+._BVPhotoGroupContainer {
 	display: block;
 	overflow: hidden;
 	clear: both;
@@ -136,12 +128,9 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	margin-right: 5px;
 }
 
-#BVRRContainer {
-	background: url(../images/bvLoading.gif) no-repeat center #eeeeee;
+._BVContentLoadingContainer {
+	background: url(../images/bvLoading.gif) no-repeat center transparent !important;
 	min-height: 50px;
-	width: 80%;
-	margin: 0 auto;
-	padding: 10px;
 }
 
 ._BVReviewContainer {

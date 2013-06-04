@@ -22,7 +22,7 @@ function reviewsSubmissionAPICall (options) {
 
 	var defaultSettings = $.extend({
 		"URL":{
-			"BaseURL":baseAPIURL,
+			"BaseURL":apiBaseURL,
 			"CustomerName":apiDefaults["customerName"],
 			"ApiVersion":apiDefaults["apiVersion"], //The API version.
 			"Format":apiDefaults["format"], //Response format (xml or json)

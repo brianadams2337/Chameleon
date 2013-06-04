@@ -82,8 +82,23 @@ function setStarRating (toReceive, rating, range) {
    	var avg = (avgDecimal * 100);
 	var imgPercentage = (imgWidth / (imgWidth * avgDecimal)) * 100;
 
-	$(toReceive).find('._BVRatingStarsFilled').andSelf().filter('._BVRatingStarsFilled').css({"width":avg+"%"});
-	$(toReceive).find('._BVRatingStarsFilledImage').andSelf().filter('._BVRatingStarsFilledImage').css({"width":imgPercentage+"%"});
+	$(toReceive).find('._BVRatingStarsContainer').andSelf().filter('._BVRatingStarsContainer').css({
+		"position":"relative"
+	});
+	$(toReceive).find('._BVRatingStarsFilled').andSelf().filter('._BVRatingStarsFilled').css({
+		"width":avg+"%",
+		"position":"absolute",
+		"top":"0px",
+		"left":"0px",
+		"overflow":"hidden"
+	});
+	$(toReceive).find('._BVRatingStarsFilledImage').andSelf().filter('._BVRatingStarsFilledImage').css({
+		"width":imgPercentage+"%"
+	});
+	$(toReceive).find('._BVRatingStarsUnfilled').andSelf().filter('._BVRatingStarsUnfilled').css({
+		"width":"100%"
+	});
+	
 	$(toReceive).find('._BVRatingStarsText').andSelf().filter('._BVRatingStarsText').text(rating + " stars");
 }
 
