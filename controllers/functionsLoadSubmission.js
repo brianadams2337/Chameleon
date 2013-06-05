@@ -46,11 +46,11 @@ function loadReviewSubmissionForm (content, options) {
 					"target":"_self"
 				});
 				// headers
-				loadPageHeader ("Page HEADER!");
-				loadSectionHeader ("Ratings Section", {
+				loadPageHeader ("Write Your Review");
+				loadSectionHeader ("Your Rating", {
 					"targetContainer":"._BVSectionHeaderRatingsContainer"
 				});
-				loadSectionHeader ("Review Section", {
+				loadSectionHeader ("Your Review", {
 					"targetContainer":"._BVSectionHeaderReviewContainer"
 				});
 				// inputs
