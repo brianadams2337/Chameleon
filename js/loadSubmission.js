@@ -14,37 +14,42 @@ $(document).ready(function() {
 	}());
 
 	$.when(
-		/* LOAD JS FILES */
-		$.getScript("http://localhost:8888/Chameleon/js/jquery.min.1.9.1.js"),
-		$.getScript("http://localhost:8888/Chameleon/js/createHTML5Elements.js"),
-		/* controllers */
-		$.getScript("http://localhost:8888/Chameleon/controllers/functionsGlobal.js"),
-		$.getScript("http://localhost:8888/Chameleon/controllers/functionsLoadSubmission.js"),
-		/* models */
-		$.getScript("http://localhost:8888/Chameleon/models/varsGlobal.js"),
-		$.getScript("http://localhost:8888/Chameleon/models/varsReviews.js"),
-		$.getScript("http://localhost:8888/Chameleon/models/apiCallsGlobal.js"),
-		$.getScript("http://localhost:8888/Chameleon/models/apiCallsReviewsSubmission.js"),
-		/* plugins */
-		$.getScript("http://localhost:8888/Chameleon/js/plugins/jquery.cookie.js"),
-		$.getScript("http://localhost:8888/Chameleon/js/plugins/jquery.dateFormat.js"),
-		$.getScript("http://localhost:8888/Chameleon/js/plugins/jquery.magnific-popup.js"),
-		/* LOAD CSS FILES */
-		$("head").append("<link id='' href='http://localhost:8888/Chameleon/css/bazaarvoiceUniversal.css' type='text/css' rel='stylesheet' />"),
-		$("head").append("<link id='' href='http://localhost:8888/Chameleon/css/magnific-popup.css' type='text/css' rel='stylesheet' />"),
-
-		$.Deferred(function(deferred){
-			$(deferred.resolve);
-		})
+		// global variables
+		$.getScript("models/varsGlobal.js")
 	).done(function(){
+		$.when(
+			/* LOAD JS FILES */
+			$.getScript(siteBaseURL + "js/jquery.min.1.9.1.js"),
+			$.getScript(siteBaseURL + "js/createHTML5Elements.js"),
+			/* controllers */
+			$.getScript(siteBaseURL + "controllers/functionsGlobal.js"),
+			$.getScript(siteBaseURL + "controllers/functionsLoadSubmission.js"),
+			/* models */
+			$.getScript(siteBaseURL + "models/varsGlobal.js"),
+			$.getScript(siteBaseURL + "models/varsReviews.js"),
+			$.getScript(siteBaseURL + "models/apiCallsGlobal.js"),
+			$.getScript(siteBaseURL + "models/apiCallsReviewsSubmission.js"),
+			/* plugins */
+			$.getScript(siteBaseURL + "js/plugins/jquery.cookie.js"),
+			$.getScript(siteBaseURL + "js/plugins/jquery.dateFormat.js"),
+			$.getScript(siteBaseURL + "js/plugins/jquery.magnific-popup.js"),
+			/* LOAD CSS FILES */
+			$("head").append("<link id='' href='" + siteBaseURL + "css/bazaarvoiceUniversal.css' type='text/css' rel='stylesheet' />"),
+			$("head").append("<link id='' href='" + siteBaseURL + "css/magnific-popup.css' type='text/css' rel='stylesheet' />"),
 
-		// load reviews into submission container
-		getReviewsSubmissionForm(urlParameters["productId"], function(content) {
-			loadReviewSubmissionForm(content, {
-				"productId":urlParameters["productId"],
-				"returnURL":urlParameters["returnURL"]
+			$.Deferred(function(deferred){
+				$(deferred.resolve);
+			})
+		).done(function(){
+
+			// load review submission container
+			getReviewsSubmissionForm(urlParameters["productId"], function(content) {
+				loadReviewSubmissionForm(content, {
+					"productId":urlParameters["productId"],
+					"returnURL":urlParameters["returnURL"]
+				});
 			});
-		});
 
+		});
 	});
 });

@@ -10,6 +10,11 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	font-style: normal;
 }
 
+._BVContentLoadingContainer {
+	background: url(../images/bvLoading.gif) no-repeat center transparent !important;
+	min-height: 50px;
+}
+
 /* STAR RATINGS */
 
 .BVOverallRatingContainer ._BVRatingStarsContainer {
@@ -126,11 +131,6 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	float: left;
 	clear: none;
 	margin-right: 5px;
-}
-
-._BVContentLoadingContainer {
-	background: url(../images/bvLoading.gif) no-repeat center transparent !important;
-	min-height: 50px;
 }
 
 ._BVReviewContainer {

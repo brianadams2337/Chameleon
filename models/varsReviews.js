@@ -42,9 +42,9 @@ var defaultReviewTagTextContainer = "._BVTagText";
 
 /* USER INFO */
 var defaultReviewUserNicknameContainer = "._BVUserNicknameContainer"; // user nickname container
-var defaultReviewUserNicknameTextContainer = "._BVReviewUserNicknameText";
+var defaultReviewUserNicknameTextContainer = "._BVUserNicknameText";
 var defaultReviewUserLocationContainer = "._BVUserLocationContainer"; // user location container
-var defaultReviewUserLocationTextContainer = "._BVReviewUserLocationText";
+var defaultReviewUserLocationTextContainer = "._BVUserLocationText";
 
 /* CDVs */
 var defaultReviewContextDataValueGroupContainer = "._BVContextDataValueGroupContainer"; // context data values container
@@ -71,9 +71,9 @@ var defaultReviewFeedbackContainer = "._BVFeedbackContainer"; // all feedback (c
 var defaultReviewFeedbackCountContainer = "._BVFeedbackCountContainer"; // feedback count container
 var defaultReviewFeedbackCountPositiveContainer = "._BVFeedbackPositiveCountValue";
 var defaultReviewFeedbackCountTotalContainer = "._BVFeedbackTotalCountValue";
-var defaultReviewFeedbackCountPercentageContainer = "._BVReviewFeedbackCountContainer";
+var defaultReviewFeedbackCountPercentageContainer = "._BVFeedbackCountContainer";
 var defaultReviewFeedbackVotingContainer = "._BVFeedbackVotingContainer"; // feedback voting container
-var defaultReviewFeedbackVotingButtonContainer = "._BVReviewFeedbackVotingButtonContainer"; // feedback voting button container
+var defaultReviewFeedbackVotingButtonContainer = "._BVFeedbackVotingButtonContainer"; // feedback voting button container
 var defaultReviewFeedbackVotingButtonPositiveContainer = "._BVFeedbackPositiveButton";
 var defaultReviewFeedbackVotingButtonNegativeContainer = "._BVFeedbackNegativeButton";
 
