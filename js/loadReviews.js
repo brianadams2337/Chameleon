@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 			/* MAGNIFIC LIGHTBOX POPIN */
 			// photos
-			$('._BVContentContainer').on('click', '._BVPhotoThumbnail', function() {
+			$('#BVRRContainer').on('click', '._BVPhotoThumbnail', function() {
 				event.preventDefault();
 				$(this).magnificPopup({
 					type: 'image',
@@ -75,7 +75,23 @@ $(document).ready(function() {
 				}).click();
 			});
 			// videos
-			$('._BVContentContainer').on('click', '._BVVideoThumbnail', function() {
+			$('#BVRRContainer').on('click', '._BVVideoThumbnail', function() {
+				event.preventDefault();
+				$(this).magnificPopup({
+					type: 'iframe',
+					titleSrc: 'title'
+				}).click();
+			});
+			// photos
+			$('#BVQAContainer').on('click', '._BVPhotoThumbnail', function() {
+				event.preventDefault();
+				$(this).magnificPopup({
+					type: 'image',
+					titleSrc: 'title'
+				}).click();
+			});
+			// videos
+			$('#BVQAContainer').on('click', '._BVVideoThumbnail', function() {
 				event.preventDefault();
 				$(this).magnificPopup({
 					type: 'iframe',

@@ -66,7 +66,7 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 
 /* BASIC STYLES */
 
-#BVRRContainer {
+#BVRRContainer, #BVQAContainer {
 	background: #eeeeee;
 	width: 80%;
 	margin: 0 auto;
@@ -133,7 +133,7 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	margin-right: 5px;
 }
 
-._BVReviewContainer {
+._BVReviewContainer, ._BVQuestionAnswerContainer {
 	background: #ffffff;
 	padding: 20px;
 	margin-bottom: 10px;

@@ -1,0 +1,969 @@
+{
+   "Includes":{
+
+   },
+   "HasErrors":false,
+   "Offset":0,
+   "TotalResults":35,
+   "Locale":"en_US",
+   "Errors":[
+
+   ],
+   "Results":[
+      {
+         //"QuestionSummary":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught",
+         //"TagDimensions":{
+
+         //},
+         //"TagDimensionsOrder":[
+
+         //],
+         //"AdditionalFieldsOrder":[
+
+         //],
+         "TotalAnswerCount":0,
+         /*"QuestionDetails":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the right dress. After this dress, I tried on 4 other ones, but decided on buying this one. It fits sooooo perfectly, and it gives your body a wonderful shape.test\nI love this dress sooooooo much!!",
+         "UserNickname":"tester111295",
+         "Photos":[
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699790/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699790/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699790"
+            },
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699791/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699791/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699791"
+            },
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699792/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699792/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699792"
+            },
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699793/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699793/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699793"
+            },
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699794/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699794/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699794"
+            },
+            {
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699795/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/699795/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"699795"
+            }
+         ],
+         "ContextDataValues":{
+            "Age":{
+               "Value":"17orUnder",
+               "ValueLabel":"17 or under",
+               "DimensionLabel":"Age",
+               "Id":"Age"
+            },
+            "Gender":{
+               "Value":"Male",
+               "ValueLabel":"Male",
+               "DimensionLabel":"Gender",
+               "Id":"Gender"
+            }
+         },*/
+         "CategoryId":null,
+         /*"Videos":[
+            {
+               "VideoHost":"www.youtube.com",
+               "Caption":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught",
+               "VideoThumbnailUrl":"http://img.youtube.com/vi/Adkgoa1Eeug/0.jpg",
+               "VideoId":"Adkgoa1Eeug",
+               "VideoUrl":"http://www.youtube.com/v/Adkgoa1Eeug&rel=0",
+               "VideoIframeUrl":null
+            }
+         ],
+         "ContextDataValuesOrder":[
+            "Gender",
+            "Age"
+         ],*/
+         "LastModificationTime":"2013-02-27T09:30:03.000+00:00",
+         "SubmissionId":"m703yiy6wwc4ca9dqxdrg5oup",
+         "AnswerIds":[
+
+         ],
+         /*"TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,*/
+         "BadgesOrder":[
+
+         ],
+         //"UserLocation":"TEST>> I came in the store wanting to try 4 other dresses, and didnt even notice this one. I walked by a huge poster, and this beautiful dress caught my eye! It ended up being the first dress I tried on, and it was right then, that I knew this was the rig",
+         "Badges":{
+
+         },
+         "AuthorId":"1cpy02iaobk",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         /*"AdditionalFields":{
+
+         },*/
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         //"SubmissionTime":"2013-02-27T09:18:17.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         //"Id":"426942",
+         "LastModeratedTime":"2013-02-27T09:30:03.000+00:00"
+      },
+      {
+         "QuestionSummary":"Praesent quis ante erat, sit amet conguenulla.Quisque cursus pulvinar ligula, sed accumsan felis interdumid.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Aliquam lacinia auctoraccumsan.Proin nec conguerisus.",
+         "UserNickname":"hermia260",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-25T23:21:26.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"Irvine, CA",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-erf4ta6i3zcmbz103p9m4qxmd",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423366",
+         "LastModeratedTime":"2013-02-25T23:21:26.000+00:00"
+      },
+      {
+         "QuestionSummary":"Curabitur pulvinar nulla ut mauris varius in aliquam ligulasemper.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Nunc sollicitudin, odio eu interdum lobortis, dui risus mattis eros, sit amet laoreet urna sem necnisi.Aenean vulputate mi non quam egestasconvallis.\n\nMauris nisi erat, mollis quis rutrum et, viverra utmi.Suspendisse rhoncus, libero non vehicula sodales, nisl lorem vestibulum magna, non condimentum nisl est quisligula.",
+         "UserNickname":"biondello223",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-25T23:21:26.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"San Bernardino, CA",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-t8fm0s3g9np0ncnrs8salv76x",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423367",
+         "LastModeratedTime":"2013-02-25T23:21:26.000+00:00"
+      },
+      {
+         "QuestionSummary":"Fusce sed diam arcu, vel sodaleslacus.In malesuada adipiscing enim, at porttitor dolor venenatisac.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Fusce condimentum posuerevenenatis.Sed vel nisl a mi pellentesque porta ut arisus.\n\nPhasellus euismod porttitor enim, vitae rhoncus risus pellentesquea.",
+         "UserNickname":"emilia438",
+         "Photos":[
+            {
+               "Caption":"Aenean interdum aliquamiaculis. Aenea",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695178/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695178/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695178"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695179/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695179/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695179"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695180/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695180/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695180"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695181/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695181/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695181"
+            }
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "SubmissionId":null,
+         "LastModificationTime":"2013-02-25T23:21:26.000+00:00",
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "UserLocation":"Modesto, CA",
+         "BadgesOrder":[
+            "top50Contributor"
+         ],
+         "Badges":{
+            "top50Contributor":{
+               "BadgeType":"Merit",
+               "Id":"top50Contributor",
+               "ContentType":"QUESTION"
+            }
+         },
+         "AuthorId":"data-gen-user-6qalqhduv1g2rss9xp00wgpg7",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423368",
+         "LastModeratedTime":"2013-02-25T23:21:26.000+00:00"
+      },
+      {
+         "QuestionSummary":"Maecenas sagittis, purus ac pulvinar dignissim, urna lacus lobortis elit, ac mollis magna elit velest.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Donec molestie eleifend elit, vitae congue orci gravidavel.Aenean rutrum egestas lectus placeratlobortis.",
+         "UserNickname":"cloten516",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "SubmissionId":null,
+         "LastModificationTime":"2013-02-25T23:21:27.000+00:00",
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "UserLocation":null,
+         "BadgesOrder":[
+            "top100Contributor"
+         ],
+         "Badges":{
+            "top100Contributor":{
+               "BadgeType":"Merit",
+               "Id":"top100Contributor",
+               "ContentType":"QUESTION"
+            }
+         },
+         "AuthorId":"data-gen-user-366mmvtmkk716sdlv969wbwf4",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423369",
+         "LastModeratedTime":"2013-02-25T23:21:27.000+00:00"
+      },
+      {
+         "QuestionSummary":"Aenean interdum aliquamiaculis.Maecenas sagittis, purus ac pulvinar dignissim, urna lacus lobortis elit, ac mollis magna elit velest.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Aenean sit amet lacusmagna.Vivamus quam sapien, tristique in mattis et, facilisis sit ametipsum.Donec hendrerit mollis quam velaccumsan.",
+         "UserNickname":"biondello223",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-25T23:21:27.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"Dallas, TX",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-t8fm0s3g9np0ncnrs8salv76x",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423370",
+         "LastModeratedTime":"2013-02-25T23:21:27.000+00:00"
+      },
+      {
+         "QuestionSummary":"Sed posuere molestie diam etvehicula.Ut dictum imperdiet augue, eu pretium quam aliquamnon.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Aenean fringilla ultricesultrices.Morbi bibendum nibh quis elit cursus eu mattis doloraliquet.Nulla sed nibh est, in conguemassa.",
+         "UserNickname":"biondello223",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+            {
+               "Caption":null,
+               "VideoHost":"www.youtube.com",
+               "VideoThumbnailUrl":"http://img.youtube.com/vi/gmWWePoYHYk/0.jpg",
+               "VideoId":"gmWWePoYHYk",
+               "VideoUrl":"http://www.youtube.com/v/gmWWePoYHYk&rel=0",
+               "VideoIframeUrl":null
+            }
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-25T23:21:27.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"Worcester, MA",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-t8fm0s3g9np0ncnrs8salv76x",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423371",
+         "LastModeratedTime":"2013-02-25T23:21:27.000+00:00"
+      },
+      {
+         "QuestionSummary":"Maecenas tincidunt lorem vitae magna auctorcondimentum.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Mauris ut lacus non arcu faucibus scelerisque volutpat rhoncusdiam.Maecenas non sodalesdui.",
+         "UserNickname":"portia470",
+         "Photos":[
+
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-25T23:21:27.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"Columbia, MO",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-9xbg8pbkxenz2goxo2iddtjzw",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423372",
+         "LastModeratedTime":"2013-02-25T23:21:27.000+00:00"
+      },
+      {
+         "QuestionSummary":"In faucibus dui quis nisl egestas a convallis liberovarius.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Sed quis lectus in erat viverra lobortis nec utsapien.Praesent at rutrumipsum.",
+         "UserNickname":"claudius714",
+         "Photos":[
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695182/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695182/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695182"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695183/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695183/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695183"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695184/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695184/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695184"
+            }
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "SubmissionId":null,
+         "LastModificationTime":"2013-02-25T23:21:27.000+00:00",
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":0,
+         "TotalPositiveFeedbackCount":0,
+         "UserLocation":"Springfield, MO",
+         "BadgesOrder":[
+            "Staff",
+            "Expert"
+         ],
+         "Badges":{
+            "Expert":{
+               "BadgeType":"Rank",
+               "Id":"Expert",
+               "ContentType":"QUESTION"
+            },
+            "Staff":{
+               "BadgeType":"Affiliation",
+               "Id":"Staff",
+               "ContentType":"QUESTION"
+            }
+         },
+         "AuthorId":"data-gen-user-5r68hrl4k9aji4wneyitcfwqf",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":0,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423373",
+         "LastModeratedTime":"2013-02-25T23:21:27.000+00:00"
+      },
+      {
+         "QuestionSummary":"Sed fringilla malesuadarutrum.Aenean nec scelerisquenunc.",
+         "TagDimensions":{
+
+         },
+         "TagDimensionsOrder":[
+
+         ],
+         "AdditionalFieldsOrder":[
+
+         ],
+         "TotalAnswerCount":0,
+         "QuestionDetails":"Nullam molestie leo et mi vestibulum sit amet semper duiultricies.Integer urna dui, varius ut interdum non, placerat vitaemauris.\n\nProin tincidunt orci ac lacus faucibus condimentum mattis felisconsectetur.Nunc congue semper lectus euporttitor.",
+         "UserNickname":"portia470",
+         "Photos":[
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695185/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695185/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695185"
+            },
+            {
+               "Caption":"Integer urna dui, varius ut interdum non, placerat vitaemauris. Proin tincidunt orci ac lacus faucibus condimentum mattis felisconsectetur. Nunc congue semper lectus euporttitor. Aliquam pellentesque nunc",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695186/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695186/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695186"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695187/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695187/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695187"
+            },
+            {
+               "Caption":"Nullam tempor eleifend nisi ege",
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695188/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695188/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695188"
+            },
+            {
+               "Caption":null,
+               "Sizes":{
+                  "thumbnail":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695189/photoThumb.jpg",
+                     "Id":"thumbnail"
+                  },
+                  "normal":{
+                     "Url":"http://bvpstemplates.ugc.bazaarvoice.com/bvstaging/answers/1974/695189/photo.jpg",
+                     "Id":"normal"
+                  }
+               },
+               "SizesOrder":[
+                  "thumbnail",
+                  "normal"
+               ],
+               "Id":"695189"
+            }
+         ],
+         "ContextDataValues":{
+
+         },
+         "CategoryId":null,
+         "Videos":[
+
+         ],
+         "ContextDataValuesOrder":[
+
+         ],
+         "LastModificationTime":"2013-02-27T10:10:42.000+00:00",
+         "SubmissionId":null,
+         "AnswerIds":[
+
+         ],
+         "TotalFeedbackCount":1,
+         "TotalPositiveFeedbackCount":0,
+         "BadgesOrder":[
+
+         ],
+         "UserLocation":"Rialto, CA",
+         "Badges":{
+
+         },
+         "AuthorId":"data-gen-user-9xbg8pbkxenz2goxo2iddtjzw",
+         "IsFeatured":false,
+         "IsSyndicated":null,
+         "ProductRecommendationIds":[
+
+         ],
+         "ProductId":"test1",
+         "AdditionalFields":{
+
+         },
+         "CampaignId":null,
+         "TotalNegativeFeedbackCount":1,
+         "SubmissionTime":"2013-02-25T23:21:21.000+00:00",
+         "ContentLocale":"en_US",
+         "ModerationStatus":"APPROVED",
+         "Id":"423374",
+         "LastModeratedTime":"2013-02-25T23:21:28.000+00:00"
+      }
+   ],
+   "Limit":10
+}

@@ -5,11 +5,12 @@ var defaultReviewsParentContainer = "#BVRRContainer"; // main container for RR i
 var defaultReviewsBodyContainer = "._BVReviewBodyContainer"; // all reviews section container
 var defaultQuickTakeContainer = "._BVQuickTakeContainer"; // quick take container
 var defaultReviewContainer = "._BVReviewContainer"; // individual review container
+
+/* HEADERS */
 var defualtPageHeaderContainer = "._BVPageHeaderContainer"
 var defualtPageHeaderTextContainer = "._BVPageHeaderText"
 var defualtSectionHeaderContainer = "._BVSectionHeaderContainer"
 var defualtSectionHeaderTextContainer = "._BVSectionHeaderText"
-
 
 /* RATINGS */
 var defaultOverallRatingContainer = "._BVOverallRatingContainer"; // overall rating container
@@ -129,102 +130,86 @@ var defaultFormHelperTextContainer = "._BVHelperText"; // input helper text
 
 /***** VIEW TEMPLATES *****/
 
-/* MAIN TEMPLATES */
 
-// quick take module
-var defaultQuickTakeContainerView = pathView("quickTakeContainer.html");
-// individual review module
-var defaultReviewContainerView = pathView("reviewContainer.html");
-var defaultPageHeaderContainerView = pathView("headerPageContainer.html");
-var defaultSectionHeaderContainerView = pathView("headerSectionContainer.html");
+/* MAIN TEMPLATES */
+var defaultQuickTakeContainerView = pathView("quickTakeContainer.html"); // quick take module
+var defaultReviewContainerView = pathView("reviewContainer.html"); // individual review module
+
+/* HEADERS */
+var defaultPageHeaderContainerView = pathView("headerPageContainer.html"); // page header
+var defaultSectionHeaderContainerView = pathView("headerSectionContainer.html"); // section header
 
 /* RATINGS TEMPLATES */
-
-// overall rating module
-var defaultOverallRatingContainerView = pathView("overallRatingContainer.html");
-// secondary rating module
-var defaultSecondaryRatingIndividualContainerView = pathView("secondaryRatingIndividualContainer.html");
-// review title module
-var defaultReviewTitleContainerView = pathView("titleContainer.html");
-// review text module
-var defaultReviewBodyTextContainerView = pathView("bodyTextContainer.html");
-// date module
-var defaultReviewDateContainerView = pathView("dateContainer.html");
-// is recommended module
-var defaultReviewRecommededContainerView = pathView("recommendedContainer.html");
+var defaultOverallRatingContainerView = pathView("overallRatingContainer.html"); // overall rating module
+var defaultSecondaryRatingIndividualContainerView = pathView("secondaryRatingIndividualContainer.html"); // secondary rating module
+var defaultReviewTitleContainerView = pathView("titleContainer.html"); // review title module
+var defaultReviewBodyTextContainerView = pathView("bodyTextContainer.html"); // review text module
+var defaultReviewDateContainerView = pathView("dateContainer.html"); // date module
+var defaultReviewRecommededContainerView = pathView("recommendedContainer.html"); // is recommended module
 
 /* TAGS TEMPLATES */
-
-// all tags module
-var defaultReviewTagsContainerView = pathView("tagGroupContainer.html");
-// individual tag module
-var defaultReviewTagContainerView = pathView("tagIndividualContainer.html");
+var defaultReviewTagsContainerView = pathView("tagGroupContainer.html"); // all tags module
+var defaultReviewTagContainerView = pathView("tagIndividualContainer.html"); // individual tag module
 
 /* NICKNAME TEMPLATES */
-
-// nickname module
-var defaultReviewUserNicknameContainerView = pathView("nicknameContainer.html");
+var defaultReviewUserNicknameContainerView = pathView("nicknameContainer.html"); // nickname module
 
 /* LOCATION TEMPLATES */
-
-// location module
-var defaultReviewUserLocationContainerView = pathView("locationContainer.html");
+var defaultReviewUserLocationContainerView = pathView("locationContainer.html"); // location module
 
 /* CDVs TEMPLATES */
-
-// context data values module
-var defaultReviewContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html");
+var defaultReviewContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html"); // context data values module
 
 /* ADDITIONAL FIELDS TEMPLATES */
-
-// additional fields module
-var defaultReviewAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html");
+var defaultReviewAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html"); // additional fields module
 
 /* MEDIA TEMPLATES */
-
-// photos module
-var defaultReviewPhotoContainerView = pathView("photoThumbnailContainer.html");
-// videos module
-var defaultReviewVideoContainerView = pathView("videoThumbnailContainer.html");
+var defaultReviewPhotoContainerView = pathView("photoThumbnailContainer.html"); // photos module
+var defaultReviewVideoContainerView = pathView("videoThumbnailContainer.html"); // videos module
 
 /* FEEDBACK TEMPLATES */
-
-// all feedback (count and voting) module
-var defaultReviewFeedbackContainerView = pathView("feedbackContainer.html");
-// feedback count module
-var defaultReviewFeedbackCountContainerView = pathView("feedbackCountContainer.html");
-// feedback voting module
-var defaultReviewFeedbackVotingContainerView = pathView("feedbackVotingContainer.html");
+var defaultReviewFeedbackContainerView = pathView("feedbackContainer.html"); // all feedback (count and voting) module
+var defaultReviewFeedbackCountContainerView = pathView("feedbackCountContainer.html"); // feedback count module
+var defaultReviewFeedbackVotingContainerView = pathView("feedbackVotingContainer.html"); // feedback voting module
 
 /* INAPPROPRIATE CONTENT TEMPLATES */
+var defaultReviewReportInappropriateContainerView = pathView("reportInappropriateContainer.html"); // inappropriate content module
 
-// inappropriate content module
-var defaultReviewReportInappropriateContainerView = pathView("reportInappropriateContainer.html");
 
-/* BUTTONS */
+/***** BUTTONS *****/
 
-// button module
-var defaultButtonContainerView = pathView("buttonContainer.html");
 
-/* SUBMISSION */
+var defaultButtonContainerView = pathView("buttonContainer.html"); // generic button module
+
+
+/***** SUBMISSION *****/
+
+
 var defaultSubmissionFormContainerView = pathView("submissionFormReviewContainer.html");
 
-var defaultSecondaryRatingContainerView = pathView("inputSecondaryRatingContainer.html");
+var defaultSecondaryRatingContainerView = pathView("inputSecondaryRatingContainer.html"); // secondary rating module
 
-var defaultContextDataValueContainerView = pathView("inputContextDataValueContainer.html");
-var defaultAdditionalFieldContainerView = pathView("inputAdditionalFieldsContainer.html");
+var defaultContextDataValueContainerView = pathView("inputContextDataValueContainer.html"); // context data value module
+var defaultAdditionalFieldContainerView = pathView("inputAdditionalFieldsContainer.html"); // additional field module
 
-var defaultInputContainerView = pathView("inputContainer.html");
+var defaultInputContainerView = pathView("inputContainer.html"); // generic input module
 
-var defaultInputTextFieldContainerView = pathView("inputTextFieldContainer.html");
-var defaultInputTextAreaContainerView = pathView("inputTextAreaContainer.html");
-var defaultInputCheckboxGroupContainerView = pathView("inputCheckboxGroupContainer.html");
-var defaultInputCheckboxIndividualContainerView = pathView("inputCheckboxIndividualContainer.html");
-var defaultInputCheckboxContainerView = pathView("inputCheckboxContainer.html");
-var defaultInputRadioGroupContainerView = pathView("inputRadioGroupContainer.html");
-var defaultInputRadioIndividualContainerView = pathView("inputRadioIndividualContainer.html");
-var defaultInputRadioContainerView = pathView("inputRadioContainer.html");
-var defaultInputSelectContainerView = pathView("inputSelectContainer.html");
-var defaultInputSelectOptionContainerView = pathView("inputSelectOptionContainer.html");
+/* TEXT INPUTS */
+var defaultInputTextFieldContainerView = pathView("inputTextFieldContainer.html"); // text field module
+var defaultInputTextAreaContainerView = pathView("inputTextAreaContainer.html"); // text area module
+
+/* CHECKBOX INPUTS */
+var defaultInputCheckboxGroupContainerView = pathView("inputCheckboxGroupContainer.html"); // checkbox group module
+var defaultInputCheckboxIndividualContainerView = pathView("inputCheckboxIndividualContainer.html"); // checkbox individual module
+var defaultInputCheckboxContainerView = pathView("inputCheckboxContainer.html"); // checkbox input module
+
+/* RADIO INPUTS */
+var defaultInputRadioGroupContainerView = pathView("inputRadioGroupContainer.html"); // radio group module
+var defaultInputRadioIndividualContainerView = pathView("inputRadioIndividualContainer.html"); // radio individual module
+var defaultInputRadioContainerView = pathView("inputRadioContainer.html"); // radio input module
+
+/* SELECT INPUTS (Dropdowns) */
+var defaultInputSelectContainerView = pathView("inputSelectContainer.html"); // select (dropdown) module
+var defaultInputSelectOptionContainerView = pathView("inputSelectOptionContainer.html"); // option (dropdown) module
 
 
