@@ -100,7 +100,7 @@ function loadQuickTake (content, options) {
 				loadReviewRecommendedAverage (content, {
 					"parentContainer":settings["targetContainer"]
 				});
-				loadWriteReviewButton ("Write a Review Now", {
+				loadWriteReviewButton ("Write a Review", {
 					"parentContainer":settings["targetContainer"],
 					"productId":settings["productId"]
 				});
