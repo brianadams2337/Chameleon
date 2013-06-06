@@ -1,4 +1,7 @@
-/***** DEFAULT VARS FOR TARGET CONTAINER CLASSES *****/
+
+
+/***** TARGET CONTAINER CLASSES *****/
+
 
 /* MAIN CONTAINERS */
 var defaultQuestionAnswerParentContainer = "#BVQAContainer"; // main container for AA implementation
@@ -60,64 +63,41 @@ var defaultQuestionFeedbackVotingButtonNegativeContainer = "._BVFeedbackNegative
 var defaultQuestionReportInappropriateContainer = "._BVReportInappropriateContainer"; // inapropriate content container
 
 
-/* VIEW TEMPLATES */
-var defaultQuestionAnswerContainerView = pathView("questionAnswerContainer.html");
+/***** VIEW TEMPLATES *****/
 
 
-/* QUESTIONS TEMPLATES */
+var defaultQuestionAnswerContainerView = pathView("questionAnswerContainer.html"); // individual question/answer module
 
-// question title module
-var defaultQuestionTitleContainerView = pathView("titleContainer.html");
-// question text module
-var defaultQuestionBodyTextContainerView = pathView("bodyTextContainer.html");
-// date module
-var defaultQuestionDateContainerView = pathView("dateContainer.html");
+/* QUESTION CONTENT */
+var defaultQuestionTitleContainerView = pathView("titleContainer.html"); // question title module
+var defaultQuestionBodyTextContainerView = pathView("bodyTextContainer.html"); // question text module
+var defaultQuestionDateContainerView = pathView("dateContainer.html"); // question date module
 
 /* NICKNAME TEMPLATES */
-
-// nickname module
-var defaultQuestionUserNicknameContainerView = pathView("nicknameContainer.html");
+var defaultQuestionUserNicknameContainerView = pathView("nicknameContainer.html"); // question nickname module
 
 /* LOCATION TEMPLATES */
-
-// location module
-var defaultQuestionUserLocationContainerView = pathView("locationContainer.html");
+var defaultQuestionUserLocationContainerView = pathView("locationContainer.html"); // question location module
 
 /* CDVs TEMPLATES */
-
-// context data values module
-var defaultQuestionContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html");
+var defaultQuestionContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html"); // question context data values module
 
 /* TAGS TEMPLATES */
-
-// all tags module
-var defaultQuestionTagsContainerView = pathView("tagGroupContainer.html");
-// individual tag module
-var defaultQuestionTagContainerView = pathView("tagIndividualContainer.html");
+var defaultQuestionTagsContainerView = pathView("tagGroupContainer.html"); // question tag group module
+var defaultQuestionTagContainerView = pathView("tagIndividualContainer.html"); // question individual tag module
 
 /* ADDITIONAL FIELDS TEMPLATES */
-
-// additional fields module
-var defaultQuestionAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html");
+var defaultQuestionAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html"); // question additional field module
 
 /* MEDIA TEMPLATES */
-
-// photos module
-var defaultQuestionPhotoContainerView = pathView("photoThumbnailContainer.html");
-// videos module
-var defaultQuestionVideoContainerView = pathView("videoThumbnailContainer.html");
+var defaultQuestionPhotoContainerView = pathView("photoThumbnailContainer.html"); // question photo module
+var defaultQuestionVideoContainerView = pathView("videoThumbnailContainer.html"); // question video module
 
 /* FEEDBACK TEMPLATES */
-
-// all feedback (count and voting) module
-var defaultQuestionFeedbackContainerView = pathView("feedbackContainer.html");
-// feedback count module
-var defaultQuestionFeedbackCountContainerView = pathView("feedbackCountContainer.html");
-// feedback voting module
-var defaultQuestionFeedbackVotingContainerView = pathView("feedbackVotingContainer.html");
+var defaultQuestionFeedbackContainerView = pathView("feedbackContainer.html"); // all feedback (count and voting) module
+var defaultQuestionFeedbackCountContainerView = pathView("feedbackCountContainer.html"); // feedback count module
+var defaultQuestionFeedbackVotingContainerView = pathView("feedbackVotingContainer.html"); // feedback voting module
 
 /* INAPPROPRIATE CONTENT TEMPLATES */
-
-// inappropriate content module
-var defaultQuestionReportInappropriateContainerView = pathView("reportInappropriateContainer.html");
+var defaultQuestionReportInappropriateContainerView = pathView("reportInappropriateContainer.html"); // inappropriate content module
 

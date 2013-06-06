@@ -49,13 +49,16 @@ function loadReviews (content, options) {
 					loadReviewUserLocation (content[key], {
 						"parentContainer":$container
 					});
-					loadReviewContextDataValues (content[key], {
+					loadReviewContextDataValuesGroup (content[key], {
 						"parentContainer":$container
 					});
 					loadReviewTagGroups(content[key], {
 						"parentContainer":$container
 					});
-					loadReviewPhotos(content[key], {
+					loadReviewPhotosGroup(content[key], {
+						"parentContainer":$container
+					});
+					loadReviewVideosGroup(content[key], {
 						"parentContainer":$container
 					});
 					loadReviewFeedback(content[key], {
@@ -236,15 +239,17 @@ function loadReviewSecondaryRatings (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
 				// set text variables
-				var id = content["SecondaryRatings"][settings["loadOrder"][index]]["Id"];
-				var value = content["SecondaryRatings"][settings["loadOrder"][index]]["Value"];
-				var valueRange = content["SecondaryRatings"][settings["loadOrder"][index]]["ValueRange"];
-				var valueLabelText = content["SecondaryRatings"][settings["loadOrder"][index]]["ValueLabel"];
-				var labelText = content["SecondaryRatings"][settings["loadOrder"][index]]["Label"];
-				var labelMinText = content["SecondaryRatings"][settings["loadOrder"][index]]["MinLabel"];
-				var labelMaxText = content["SecondaryRatings"][settings["loadOrder"][index]]["MaxLabel"];
-				var displayType = content["SecondaryRatings"][settings["loadOrder"][index]]["DisplayType"];
+				var id = content["SecondaryRatings"][cur]["Id"];
+				var value = content["SecondaryRatings"][cur]["Value"];
+				var valueRange = content["SecondaryRatings"][cur]["ValueRange"];
+				var valueLabelText = content["SecondaryRatings"][cur]["ValueLabel"];
+				var labelText = content["SecondaryRatings"][cur]["Label"];
+				var labelMinText = content["SecondaryRatings"][cur]["MinLabel"];
+				var labelMaxText = content["SecondaryRatings"][cur]["MaxLabel"];
+				var displayType = content["SecondaryRatings"][cur]["DisplayType"];
 				// set class variables
 				var labelClass = "BVRating" + id;
 				var valueClass = "BVRating" + value;
@@ -310,10 +315,10 @@ function loadReviewBody (content, options) {
 		success: function(container) {
 			var $container = $(container);
 			// set variables
-			var reviewTextValue = content['ReviewText'];
-			// set title value
-			$container.find(defaultReviewBodyTextTextContainer).andSelf().filter(defaultReviewBodyTextTextContainer).text(reviewTextValue);
-			// add title template
+			var bodyTextValue = content['ReviewText'];
+			// set body text value
+			$container.find(defaultReviewBodyTextTextContainer).andSelf().filter(defaultReviewBodyTextTextContainer).text(bodyTextValue);
+			// add body text template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 		},
 		error: function(e) {
@@ -395,7 +400,6 @@ function loadReviewTagGroups (content, options) {
 		"loadOrder":content["TagDimensionsOrder"],
 		"productId":""
 	}, options);
-	// set content variable to tags
 	$.each(settings["loadOrder"], function(index) {
 		$.ajax({
 			url: settings["viewContainer"],
@@ -404,10 +408,12 @@ function loadReviewTagGroups (content, options) {
 			async: true,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["TagDimensions"][settings["loadOrder"][index]]["Id"];
-				var labelText = content["TagDimensions"][settings["loadOrder"][index]]["Label"];
-				var valuesArray = content["TagDimensions"][settings["loadOrder"][index]]["Values"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["TagDimensions"][cur]["Id"];
+				var labelText = content["TagDimensions"][cur]["Label"];
+				var valuesArray = content["TagDimensions"][cur]["Values"];
 				// set class variables
 				var labelClass = "BVTags" + id;
 				// set tag label (title)
@@ -415,7 +421,7 @@ function loadReviewTagGroups (content, options) {
 				// add tags container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
 				// load tags
-				loadReviewTags (valuesArray, {
+				loadReviewTagIndividual (valuesArray, {
 					"parentContainer":settings["parentContainer"],
 				});
 			},
@@ -426,7 +432,8 @@ function loadReviewTagGroups (content, options) {
 	});
 }
 
-function loadReviewTags (content, options) {
+function loadReviewTagIndividual (content, options) {
+	// content expected [<review content>]["TagDimensions"][<tag name>]["Values"]
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewTagGroupContainer,
 		"targetContainer":defaultReviewTagIndividualContainer,
@@ -434,8 +441,7 @@ function loadReviewTags (content, options) {
 		"loadOrder":content,
 		"productId":""
 	}, options);
-	// set content variable to tags
-	$.each(settings["loadOrder"], function(index) {
+	$.each(settings["loadOrder"], function(key) {
 		$.ajax({
 			url: settings["viewContainer"],
 			type: 'GET',
@@ -443,8 +449,10 @@ function loadReviewTags (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
+				// set variables
+				var tagText = content[key];
 				// set tag text
-				$container.find(defaultReviewTagTextContainer).andSelf().filter(defaultReviewTagTextContainer).text(content[index]);
+				$container.find(defaultReviewTagTextContainer).andSelf().filter(defaultReviewTagTextContainer).text(tagText);
 				// add tag container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);				
 			},
@@ -472,9 +480,9 @@ function loadReviewUserNickname (content, options) {
 		success: function(container) {
 			var $container = $(container);
 			// set variables
-			var userNicknameValue = content['UserNickname'];
+			var userNicknameText = content['UserNickname'];
 			// set nickname value
-			$container.find(defaultReviewUserNicknameTextContainer).andSelf().filter(defaultReviewUserNicknameTextContainer).text(userNicknameValue);
+			$container.find(defaultReviewUserNicknameTextContainer).andSelf().filter(defaultReviewUserNicknameTextContainer).text(userNicknameText);
 			// add nickname template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 		},
@@ -499,9 +507,9 @@ function loadReviewUserLocation (content, options) {
 		success: function(container) {
 			var $container = $(container);
 			// set variables
-			var userLocationValue = content['UserLocation'];
+			var userLocationText = content['UserLocation'];
 			// set location value
-			$container.find(defaultReviewUserLocationTextContainer).andSelf().filter(defaultReviewUserLocationTextContainer).text(userLocationValue);
+			$container.find(defaultReviewUserLocationTextContainer).andSelf().filter(defaultReviewUserLocationTextContainer).text(userLocationText);
 			// add location template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 		},
@@ -513,7 +521,7 @@ function loadReviewUserLocation (content, options) {
 
 /* CONTEXT DATA VALUES (CDVs) */
 
-function loadReviewContextDataValues (content, options) {
+function loadReviewContextDataValuesGroup (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
 		"targetContainer":defaultReviewContextDataValueGroupContainer,
@@ -529,17 +537,19 @@ function loadReviewContextDataValues (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["ContextDataValues"][settings["loadOrder"][index]]["Id"];
-				var value = content["ContextDataValues"][settings["loadOrder"][index]]["Value"];
-				var valueText = content["ContextDataValues"][settings["loadOrder"][index]]["ValueLabel"];
-				var labelText = content["ContextDataValues"][settings["loadOrder"][index]]["DimensionLabel"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["ContextDataValues"][cur]["Id"];
+				var value = content["ContextDataValues"][cur]["Value"];
+				var valueText = content["ContextDataValues"][cur]["ValueLabel"];
+				var labelText = content["ContextDataValues"][cur]["DimensionLabel"];
 				// set class variables
 				var labelClass = "BVContextDataValue" + id;
 				var valueClass = "BVContextDataValue" + value;
 				// set CDV label (title)
 				$container.find(defaultReviewContextDataValueLabelTextContainer).andSelf().filter(defaultReviewContextDataValueLabelTextContainer).text(labelText);
-				// set rating value
+				// set CDV value
 				$container.find(defaultReviewContextDataValueTextContainer).andSelf().filter(defaultReviewContextDataValueTextContainer).text(valueText);
 				// add CDVs container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
@@ -569,19 +579,21 @@ function loadReviewAdditionalFieldsGroups (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["AdditionalFields"][settings["loadOrder"][index]]["Id"];
-				var value = content["AdditionalFields"][settings["loadOrder"][index]]["Value"];
-				var valueText = content["AdditionalFields"][settings["loadOrder"][index]]["ValueLabel"];
-				var labelText = content["AdditionalFields"][settings["loadOrder"][index]]["DimensionLabel"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["AdditionalFields"][cur]["Id"];
+				var value = content["AdditionalFields"][cur]["Value"];
+				var valueText = content["AdditionalFields"][cur]["ValueLabel"];
+				var labelText = content["AdditionalFields"][cur]["DimensionLabel"];
 				// set class variables
 				var labelClass = "BVAdditionalFields" + id;
 				var valueClass = "BVAdditionalFields" + value;
-				// set CDV label (title)
+				// set additional field label (title)
 				$container.find(defaultReviewAdditionalFieldLabelTextContainer).andSelf().filter(defaultReviewAdditionalFieldLabelTextContainer).text(labelText);
-				// set rating value
+				// set additional field value
 				$container.find(defaultReviewAdditionalFieldTextContainer).andSelf().filter(defaultReviewAdditionalFieldTextContainer).text(valueText);
-				// add CDVs container template
+				// add additional fielda container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -593,7 +605,7 @@ function loadReviewAdditionalFieldsGroups (content, options) {
 
 /* MEDIA - PHOTO & VIDEO */
 
-function loadReviewPhotos (content, options) {
+function loadReviewPhotosGroup (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
 		"targetContainer":defaultReviewPhotoGroupContainer,
@@ -639,7 +651,7 @@ function loadReviewPhotos (content, options) {
 	});
 }
 
-function loadReviewVideos (content, options) {
+function loadReviewVideosGroup (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultReviewContainer,
 		"targetContainer":defaultReviewVideoGroupContainer,
@@ -655,26 +667,27 @@ function loadReviewVideos (content, options) {
 			async: true,
 			success: function(container) {
 				var $container = $(container);
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
 				// set text variables
-				var id = content["Video"][index]["Id"];
-				var thumbnailId = content["Video"][index]["Sizes"]["thumbnail"]["Id"];
-				var thumbnailUrl = content["Video"][index]["Sizes"]["thumbnail"]["Url"];
-				var thumbnail = $("<iframe />");
-				thumbnail.attr({"src":thumbnailUrl});
-				var videoId = content["Video"][index]["Sizes"]["normal"]["Id"];
-				var videoUrl = content["Video"][index]["Sizes"]["normal"]["Url"];
+				var id = cur["VideoId"];
+				var videoHost = cur["VideoHost"];
+				var thumbnailUrl = cur["VideoThumbnailUrl"];
+				var videoUrl = cur["VideoUrl"];
+				var videoiFrameUrl = cur["VideoIframeUrl"];
+				var captionText = cur["Caption"];
+				var thumbnail = new Image;
+				thumbnail.src = thumbnailUrl;
 				var video = $("<iframe />");
-				video.attr({"src":thumbnailUrl});
-				var captionText = content["Video"][index]["Caption"];
-				var SizesOrderArray = content["Video"][index]["SizesOrder"];
+				video.attr({"src":videoUrl});
 				// set class variables
 				var labelClass = "BVVideo" + id;
 				// set thumbnail
-				$container.find(defaultReviewVideoThumbnailContainer).andSelf().filter(defaultReviewVideoThumbnailContainer).html(thumbnail);
+				$container.find(defaultReviewVideoThumbnailContainer).andSelf().filter(defaultReviewVideoThumbnailContainer).html(thumbnail).attr({"href":videoUrl,"title":captionText});
 				// set photo
-				$container.find(defaultReviewVideoIndividualContainer).andSelf().filter(defaultReviewVideoIndividualContainer).html(video);
+				//$container.find(defaultReviewVideoIndividualContainer).andSelf().filter(defaultReviewVideoIndividualContainer).html(video);
 				// set caption
-				$container.find(defaultReviewVideoCaptionContainer).andSelf().filter(defaultReviewVideoCaptionContainer).text(captionText);
+				//$container.find(defaultReviewVideoCaptionContainer).andSelf().filter(defaultReviewVideoCaptionContainer).text(captionText);
 				// add CDVs container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
