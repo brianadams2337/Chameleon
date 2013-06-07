@@ -27,6 +27,7 @@ $(document).ready(function() {
 			/* models */
 			$.getScript(siteBaseURL + "models/varsGlobal.js"),
 			$.getScript(siteBaseURL + "models/varsReviews.js"),
+			$.getScript(siteBaseURL + "models/varsSubmission.js"),
 			$.getScript(siteBaseURL + "models/apiCallsGlobal.js"),
 			$.getScript(siteBaseURL + "models/apiCallsReviewsSubmission.js"),
 			/* plugins */
