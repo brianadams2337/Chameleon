@@ -168,13 +168,15 @@ function loadQuestionTagGroups (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["TagDimensions"][settings["loadOrder"][index]]["Id"];
-				var labelText = content["TagDimensions"][settings["loadOrder"][index]]["Label"];
-				var valuesArray = content["TagDimensions"][settings["loadOrder"][index]]["Values"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["TagDimensions"][cur]["Id"];
+				var labelText = content["TagDimensions"][cur]["Label"];
+				var valuesArray = content["TagDimensions"][cur]["Values"];
 				// set class variables
 				var labelClass = "BVTags" + id;
 				// set tag label (title)
@@ -193,7 +195,7 @@ function loadQuestionTagGroups (content, options) {
 	});
 }
 
-function loadQuestionTags (content, options) {
+function loadQuestionTagIndividual (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultQuestionTagGroupContainer,
 		"targetContainer":defaultQuestionTagIndividualContainer,
@@ -296,17 +298,19 @@ function loadQuestionContextDataValues (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["ContextDataValues"][settings["loadOrder"][index]]["Id"];
-				var value = content["ContextDataValues"][settings["loadOrder"][index]]["Value"];
-				var valueText = content["ContextDataValues"][settings["loadOrder"][index]]["ValueLabel"];
-				var labelText = content["ContextDataValues"][settings["loadOrder"][index]]["DimensionLabel"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["ContextDataValues"][cur]["Id"];
+				var value = content["ContextDataValues"][cur]["Value"];
+				var valueText = content["ContextDataValues"][cur]["ValueLabel"];
+				var labelText = content["ContextDataValues"][cur]["DimensionLabel"];
 				// set class variables
 				var labelClass = "BVContextDataValue" + id;
 				var valueClass = "BVContextDataValue" + value;
 				// set CDV label (title)
 				$container.find(defaultQuestionContextDataValueLabelTextContainer).andSelf().filter(defaultQuestionContextDataValueLabelTextContainer).text(labelText);
-				// set rating value
+				// set CDV value
 				$container.find(defaultQuestionContextDataValueTextContainer).andSelf().filter(defaultQuestionContextDataValueTextContainer).text(valueText);
 				// add CDVs container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
@@ -336,19 +340,21 @@ function loadQuestionAdditionalFieldsGroups (content, options) {
 			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["AdditionalFields"][settings["loadOrder"][index]]["Id"];
-				var value = content["AdditionalFields"][settings["loadOrder"][index]]["Value"];
-				var valueText = content["AdditionalFields"][settings["loadOrder"][index]]["ValueLabel"];
-				var labelText = content["AdditionalFields"][settings["loadOrder"][index]]["DimensionLabel"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = content["AdditionalFields"][cur]["Id"];
+				var value = content["AdditionalFields"][cur]["Value"];
+				var valueText = content["AdditionalFields"][cur]["ValueLabel"];
+				var labelText = content["AdditionalFields"][cur]["DimensionLabel"];
 				// set class variables
 				var labelClass = "BVAdditionalFields" + id;
 				var valueClass = "BVAdditionalFields" + value;
-				// set CDV label (title)
+				// set additional field label (title)
 				$container.find(defaultQuestionAdditionalFieldLabelTextContainer).andSelf().filter(defaultQuestionAdditionalFieldLabelTextContainer).text(labelText);
-				// set rating value
+				// set additional field value
 				$container.find(defaultQuestionAdditionalFieldTextContainer).andSelf().filter(defaultQuestionAdditionalFieldTextContainer).text(valueText);
-				// add CDVs container template
+				// add additional fields container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -373,21 +379,23 @@ function loadQuestionPhotos (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["Photos"][index]["Id"];
-				var thumbnailId = content["Photos"][index]["Sizes"]["thumbnail"]["Id"];
-				var thumbnailUrl = content["Photos"][index]["Sizes"]["thumbnail"]["Url"];
-				var thumbnail = new Image;
-				thumbnail.src = thumbnailUrl;
-				var photoId = content["Photos"][index]["Sizes"]["normal"]["Id"];
-				var photoUrl = content["Photos"][index]["Sizes"]["normal"]["Url"];
-				var photo = new Image;
-				photo.src = photoUrl;
-				var captionText = content["Photos"][index]["Caption"];
-				var SizesOrderArray = content["Photos"][index]["SizesOrder"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = cur["Id"];
+				var thumbnailId = cur["Sizes"]["thumbnail"]["Id"];
+				var thumbnailUrl = cur["Sizes"]["thumbnail"]["Url"];
+				var thumbnail = new Image; // thumbnail image
+				thumbnail.src = thumbnailUrl; // set thumbnail image src attr
+				var photoId = cur["Sizes"]["normal"]["Id"];
+				var photoUrl = cur["Sizes"]["normal"]["Url"];
+				var photo = new Image; // photo image
+				photo.src = photoUrl; // set photo image src attr
+				var captionText = cur["Caption"];
+				var SizesOrderArray = cur["SizesOrder"];
 				// set class variables
 				var labelClass = "BVPhoto" + id;
 				// set thumbnail
@@ -396,7 +404,7 @@ function loadQuestionPhotos (content, options) {
 				//$container.find(defaultQuestionPhotoIndividualContainer).andSelf().filter(defaultQuestionPhotoIndividualContainer).html(photo);
 				// set caption
 				//$container.find(defaultQuestionPhotoCaptionContainer).andSelf().filter(defaultQuestionPhotoCaptionContainer).text(captionText);
-				// add CDVs container template
+				// add photo container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -419,30 +427,33 @@ function loadQuestionVideos (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
 				// set text variables
-				var id = content["Video"][index]["Id"];
-				var thumbnailId = content["Video"][index]["Sizes"]["thumbnail"]["Id"];
-				var thumbnailUrl = content["Video"][index]["Sizes"]["thumbnail"]["Url"];
-				var thumbnail = $("<iframe />");
-				thumbnail.attr({"src":thumbnailUrl});
-				var videoId = content["Video"][index]["Sizes"]["normal"]["Id"];
-				var videoUrl = content["Video"][index]["Sizes"]["normal"]["Url"];
+				var id = cur["VideoId"];
+				var videoHost = cur["VideoHost"];
+				var thumbnailUrl = cur["VideoThumbnailUrl"];
+				var videoUrl = cur["VideoUrl"];
+				var videoiFrameUrl = cur["VideoIframeUrl"];
+				var captionText = cur["Caption"];
+				console.log(videoUrl);
+				var thumbnail = new Image;
+				thumbnail.src = thumbnailUrl;
 				var video = $("<iframe />");
-				video.attr({"src":thumbnailUrl});
-				var captionText = content["Video"][index]["Caption"];
-				var SizesOrderArray = content["Video"][index]["SizesOrder"];
+				video.attr({"src":videoUrl});
 				// set class variables
 				var labelClass = "BVVideo" + id;
 				// set thumbnail
-				$container.find(defaultQuestionVideoThumbnailContainer).andSelf().filter(defaultQuestionVideoThumbnailContainer).html(thumbnail);
-				// set photo
-				$container.find(defaultQuestionVideoIndividualContainer).andSelf().filter(defaultQuestionVideoIndividualContainer).html(video);
+				$container.find(defaultReviewVideoThumbnailContainer).andSelf().filter(defaultReviewVideoThumbnailContainer).html(thumbnail).attr({"href":videoUrl,"title":captionText});
+				// set video
+				//$container.find(defaultReviewVideoIndividualContainer).andSelf().filter(defaultReviewVideoIndividualContainer).html(video);
 				// set caption
-				$container.find(defaultQuestionVideoCaptionContainer).andSelf().filter(defaultQuestionVideoCaptionContainer).text(captionText);
-				// add CDVs container template
+				//$container.find(defaultReviewVideoCaptionContainer).andSelf().filter(defaultReviewVideoCaptionContainer).text(captionText);
+				// add video container template
+				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -594,15 +605,4 @@ function loadQuestionFeedbackVotingButton (content, options) {
 		}
 	});
 }
-
-function loadQuestionReportInappropriate (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultQuestionAnswerParentContainer,
-		"targetContainer":defaultQuestionReportInappropriateContainer,
-		"viewContainer":defaultQuestionReportInappropriateContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-}
-
 
