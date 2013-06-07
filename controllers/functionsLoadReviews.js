@@ -405,7 +405,7 @@ function loadReviewTagGroups (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
 				// current iteration of loop
@@ -423,6 +423,7 @@ function loadReviewTagGroups (content, options) {
 				// load tags
 				loadReviewTagIndividual (valuesArray, {
 					"parentContainer":settings["parentContainer"],
+					"targetContainer":$container
 				});
 			},
 			error: function(e) {
@@ -593,7 +594,7 @@ function loadReviewAdditionalFieldsGroups (content, options) {
 				$container.find(defaultReviewAdditionalFieldLabelTextContainer).andSelf().filter(defaultReviewAdditionalFieldLabelTextContainer).text(labelText);
 				// set additional field value
 				$container.find(defaultReviewAdditionalFieldTextContainer).andSelf().filter(defaultReviewAdditionalFieldTextContainer).text(valueText);
-				// add additional fielda container template
+				// add additional fields container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -618,21 +619,23 @@ function loadReviewPhotosGroup (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
-				// set text variables
-				var id = content["Photos"][index]["Id"];
-				var thumbnailId = content["Photos"][index]["Sizes"]["thumbnail"]["Id"];
-				var thumbnailUrl = content["Photos"][index]["Sizes"]["thumbnail"]["Url"];
-				var thumbnail = new Image;
-				thumbnail.src = thumbnailUrl;
-				var photoId = content["Photos"][index]["Sizes"]["normal"]["Id"];
-				var photoUrl = content["Photos"][index]["Sizes"]["normal"]["Url"];
-				var photo = new Image;
-				photo.src = photoUrl;
-				var captionText = content["Photos"][index]["Caption"];
-				var SizesOrderArray = content["Photos"][index]["SizesOrder"];
+				// current iteration of loop
+				var cur = settings["loadOrder"][index];
+				// set variables
+				var id = cur["Id"];
+				var thumbnailId = cur["Sizes"]["thumbnail"]["Id"];
+				var thumbnailUrl = cur["Sizes"]["thumbnail"]["Url"];
+				var thumbnail = new Image; // thumbnail image
+				thumbnail.src = thumbnailUrl; // set thumbnail image src attr
+				var photoId = cur["Sizes"]["normal"]["Id"];
+				var photoUrl = cur["Sizes"]["normal"]["Url"];
+				var photo = new Image; // photo image
+				photo.src = photoUrl; // set photo image src attr
+				var captionText = cur["Caption"];
+				var SizesOrderArray = cur["SizesOrder"];
 				// set class variables
 				var labelClass = "BVPhoto" + id;
 				// set thumbnail
@@ -641,7 +644,7 @@ function loadReviewPhotosGroup (content, options) {
 				//$container.find(defaultReviewPhotoIndividualContainer).andSelf().filter(defaultReviewPhotoIndividualContainer).html(photo);
 				// set caption
 				//$container.find(defaultReviewPhotoCaptionContainer).andSelf().filter(defaultReviewPhotoCaptionContainer).text(captionText);
-				// add CDVs container template
+				// add photo container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -664,7 +667,7 @@ function loadReviewVideosGroup (content, options) {
 			url: settings["viewContainer"],
 			type: 'GET',
 			dataType: 'html',
-			async: true,
+			async: false,
 			success: function(container) {
 				var $container = $(container);
 				// current iteration of loop
@@ -684,11 +687,11 @@ function loadReviewVideosGroup (content, options) {
 				var labelClass = "BVVideo" + id;
 				// set thumbnail
 				$container.find(defaultReviewVideoThumbnailContainer).andSelf().filter(defaultReviewVideoThumbnailContainer).html(thumbnail).attr({"href":videoUrl,"title":captionText});
-				// set photo
+				// set video
 				//$container.find(defaultReviewVideoIndividualContainer).andSelf().filter(defaultReviewVideoIndividualContainer).html(video);
 				// set caption
 				//$container.find(defaultReviewVideoCaptionContainer).andSelf().filter(defaultReviewVideoCaptionContainer).text(captionText);
-				// add CDVs container template
+				// add video container template
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).addClass(labelClass));
 			},
 			error: function(e) {
@@ -716,9 +719,11 @@ function loadReviewFeedback (content, options) {
 			var $container = $(container);
 			// add feedback container template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
+			// load feedback count
 			loadReviewFeedbackCount (content, {
 				"parentContainer":$container
 			});
+			// load feedback voting
 			loadReviewFeedbackVoting (content, {
 				"parentContainer":$container
 			});
@@ -759,7 +764,7 @@ function loadReviewFeedbackCount (content, options) {
 			$container.find(defaultReviewFeedbackCountTotalContainer).andSelf().filter(defaultReviewFeedbackCountTotalContainer).text(feedbackTotal);
 			// set percentage value
 			$container.find(defaultReviewFeedbackCountPercentageContainer).andSelf().filter(defaultReviewFeedbackCountPercentageContainer).text(feedbackPositivePercentageFormatted);
-			// add CDVs container template
+			// add feedback count container template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
 		},
 		error: function(e) {
@@ -787,8 +792,7 @@ function loadReviewFeedbackVoting (content, options) {
 			var feedbackCountNegative = content["TotalNegativeFeedbackCount"];
 			// set class variables
 			var valueClass = "BVFeedbackButton";
-			// add review container
-
+			// add feedback voting container
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
 			// load positive feedback button
 			loadReviewFeedbackVotingButton("helpful " + feedbackCountPositive, {
@@ -825,16 +829,11 @@ function loadReviewFeedbackVotingButton (content, options) {
 			$container.find("a").andSelf().filter("a").attr({
 				"id":"",
 				"title":"",
-				"onclick":"",
-				"href":"submission.html"
+				"onclick":"return false;",
+				"href":""
 			}).find(defaultButtonTextContainer).andSelf().filter(defaultButtonTextContainer).text(content);
 			// add button template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
-			// set return url cookie
-			$.cookie("returnURL", $(location).attr("href"), {
-				expires: 7,
-				path: "/"
-			});
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -850,6 +849,26 @@ function loadReviewReportInappropriate (content, options) {
 		"loadOrder":"",
 		"productId":""
 	}, options);
+	$.ajax({
+		url: settings["viewContainer"],
+		type: 'GET',
+		dataType: 'html',
+		success: function(container) {
+			var $container = $(container);
+			// set attributes and text for button
+			$container.find("a").andSelf().filter("a").attr({
+				"id":"",
+				"title":"",
+				"onclick":"return false;",
+				"href":""
+			}).find(defaultButtonTextContainer).andSelf().filter(defaultButtonTextContainer).text(content);
+			// add button template
+			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
+		},
+		error: function(e) {
+			defaultAjaxErrorFunction(e);
+		}
+	});
 }
 
 

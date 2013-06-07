@@ -64,6 +64,8 @@ var defaultInputCheckboxContainerView = pathView("inputCheckboxContainer.html");
 var defaultInputRadioGroupContainerView = pathView("inputRadioGroupContainer.html"); // radio group module
 var defaultInputRadioIndividualContainerView = pathView("inputRadioIndividualContainer.html"); // radio individual module
 var defaultInputRadioContainerView = pathView("inputRadioContainer.html"); // radio input module
+var defaultInputRadioOverallRatingContainerView = pathView("inputRadioOverallRatingContainer.html"); // overall rating radio input module
+var defaultInputRadioSecondaryRatingContainerView = pathView("inputRadioSecondaryRatingContainer.html"); // secondary rating radio input module
 
 /* SELECT INPUTS (Dropdowns) */
 var defaultInputSelectContainerView = pathView("inputSelectContainer.html"); // select (dropdown) module
