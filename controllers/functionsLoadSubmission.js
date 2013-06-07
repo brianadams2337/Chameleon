@@ -163,9 +163,9 @@ function loadReviewSubmissionForm (content, options) {
 				loadSendEmailAlertWhenCommentedInput (content, {
 					"parentContainer":$container
 				});*/
-				loadSubmitButton ("submit");
-				loadPreviewButton ("preview");
-				loadCancelButton ("cancel", {
+				loadSubmitButton ("Submit");
+				loadPreviewButton ("Preview");
+				loadCancelButton ("Cancel", {
 					"returnURL":settings["returnURL"]
 				});
 			},
@@ -1118,8 +1118,7 @@ function loadSelectInput (content, options) {
 			// set input attributes
 			$container.find(defaultFormSelectInputContainer).andSelf().filter(defaultFormSelectInputContainer).attr({
 				"id":inputId,
-				"name":inputName,
-				"size":""
+				"name":inputName
 			});
 			// add input template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);

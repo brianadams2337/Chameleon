@@ -65,6 +65,9 @@ $(document).ready(function() {
 				}
 			});
 
+			/* RATING PLUGIN */
+			$('.BVFieldRating input._BVFormInput').rating();
+
 			/* MAGNIFIC LIGHTBOX POPIN */
 			// photos
 			$('#BVRRContainer').on('click', '._BVPhotoThumbnail', function() {

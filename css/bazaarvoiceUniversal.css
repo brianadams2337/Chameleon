@@ -127,9 +127,25 @@ h1._BVPageHeaderText, h2._BVSectionHeaderText {margin: 10px 0;}
 
 /* Fields */
 .BVField {clear: left; overflow: hidden; margin-bottom: 10px;}
-	.BVFormInputText {width: 350px; padding: 3px 6px;}
-	.BVFormInputTextarea {width: 354px; height: 125px; padding: 3px 6px;}
+	.BVFormInputText, .BVFormInputTextarea {padding: 7px 8px; outline: none; color: #333; background-color: #fff; background-repeat: no-repeat; background-position: right center; border: 1px solid #ccc; border-radius: 3px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.075); -moz-box-sizing: border-box; box-sizing: border-box; transition: all 0.15s ease-in; -webkit-transition: all 0.15s ease-in 0; vertical-align: middle;}
+	.BVFormInputText:focus, .BVFormInputTextarea:focus {border-color: #51a7e8; box-shadow: inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,0.5);}
+	.BVFormInputText {width: 350px;}
+	.BVFormInputTextarea {width: 354px; height: 125px;}
 	._BVRadioButtonGroupContainer {float: left;}
+
+/* Rating Stars */
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+#BVSubmissionContainer div.rating-cancel, #BVSubmissionContainer div.star-rating {float: left; width: 17px; height: 15px; text-indent: -999em; cursor: pointer; display: block; background: transparent; overflow: hidden;}
+#BVSubmissionContainer div.rating-cancel, #BVSubmissionContainer div.rating-cancel a {background: url(../images/delete.gif) no-repeat 0 -16px;}
+#BVSubmissionContainer div.star-rating, #BVSubmissionContainer div.star-rating a {background: url(../images/star.gif) no-repeat 0 0px;}
+#BVSubmissionContainer div.rating-cancel a, #BVSubmissionContainer div.star-rating a {display: block; width: 16px; height: 100%; background-position: 0 0px; border: 0;}
+#BVSubmissionContainer div.star-rating-on a {background-position: 0 -16px !important;}
+#BVSubmissionContainer div.star-rating-hover a {background-position: 0 -32px;}
+/* Read Only CSS */
+#BVSubmissionContainer div.star-rating-readonly a {cursor: default !important;}
+/* Partial Star CSS */
+#BVSubmissionContainer div.star-rating {background: transparent !important; overflow: hidden !important;}
+/* END jQuery.Rating Plugin CSS */
 
 /* Tags */
 ._BVTagsInputContainer {margin-left: 160px;}
@@ -143,3 +159,4 @@ h1._BVPageHeaderText, h2._BVSectionHeaderText {margin: 10px 0;}
 
 /* Buttons */
 .BVFieldButtonGroup .BVField {float: left; clear: none; margin-right: 10px;}
+	._BVButtonSubmitContainer a {color: #fff; text-shadow: 0 1px 0 rgba(193,90,24,1); background-color: #EE8A27; background-image: -moz-linear-gradient(#EE8A27, #E86C1F); background-image: -webkit-linear-gradient(#EE8A27, #E86C1F); background-image: linear-gradient(#EE8A27, #E86C1F); border: 1px solid #EE8A27; border-bottom-color: #E86C1F;}
