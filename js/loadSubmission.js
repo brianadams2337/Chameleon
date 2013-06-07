@@ -34,11 +34,8 @@ $(document).ready(function() {
 			$.getScript(siteBaseURL + "js/plugins/jquery.cookie.js"),
 			$.getScript(siteBaseURL + "js/plugins/jquery.dateFormat.js"),
 			$.getScript(siteBaseURL + "js/plugins/jquery.magnific-popup.js"),
-<<<<<<< HEAD
 			$.getScript(siteBaseURL + "js/plugins/jquery.rating.js"),
-=======
 			$.getScript(siteBaseURL + "js/plugins/jquery-validation-1.11.1/dist/jquery.validate.js"),
->>>>>>> master
 			/* LOAD CSS FILES */
 			$("head").append("<link id='' href='" + siteBaseURL + "css/bazaarvoiceUniversal.css' type='text/css' rel='stylesheet' />"),
 			$("head").append("<link id='' href='" + siteBaseURL + "css/magnific-popup.css' type='text/css' rel='stylesheet' />"),

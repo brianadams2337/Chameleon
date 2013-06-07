@@ -367,7 +367,7 @@
 	
 	  // auto-initialize plugin
 				$(function() {
-					$('.BVFieldRating input[type=radio]').rating();
+					$('input[type=radio].star').rating();
 				});
 	
 	
