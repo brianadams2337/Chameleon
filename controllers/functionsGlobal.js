@@ -40,7 +40,27 @@ function returnToPage (url) {
 }
 
 function submitForm (action, form, productId) {
-	$(form).append("<input type='hidden' name='Action' value='" + action + "' />").append("<input type='hidden' name='ProductId' value='" + productId + "' />").submit();
+	$("#BVSubmissionContainerIDtest1").validate({
+		invalidHandler: function(event, validator) {
+			// 'this' refers to the form
+			var errors = validator.numberOfInvalids();
+			console.log("testing", errors);
+			if (errors) {
+				var message = errors == 1
+				? 'You missed 1 field. It has been highlighted'
+				: 'You missed ' + errors + ' fields. They have been highlighted';
+				$(".BVSectionErrorContainer").html(message);
+				$(".BVSectionErrorContainer").show();
+				console.log('error');
+			} else {
+				$(".BVSectionErrorContainer").hide();
+				console.log('no errors');
+			}
+		},
+		submitHandler: function(form) {
+			$(form).append("<input type='hidden' name='Action' value='" + action + "' />").append("<input type='hidden' name='ProductId' value='" + productId + "' />").submit();
+		}
+	});
 }
 
 
@@ -70,13 +90,6 @@ function addFirstLastClasses (toReceive) {
 
 
 function setStarRating (toReceive, rating, range) {
-/*	
-	if(window.SVGAngle || document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1") {
-		// supports SVG
-	else {
-		// no SVG
-	}
-*/
 	var imgWidth = $(toReceive).find('._BVRatingStarsUnfilledImage').andSelf().filter('._BVRatingStarsUnfilledImage').width();
    	var avgDecimal = (rating/range);
    	var avg = (avgDecimal * 100);

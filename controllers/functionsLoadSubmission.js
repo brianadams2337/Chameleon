@@ -218,7 +218,7 @@ function loadOverallRatingInput (content, options) {
 			$container.find(defaultFormLabelTextContainer).andSelf().filter(defaultFormLabelTextContainer).text(settings["inputSettings"]["inputLabel"]);
 			// add input template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			loadRatingRadioInputGroup (content["Data"]["Fields"]["rating"], {
+			loadRadioRatingInputGroup (content["Data"]["Fields"]["rating"], {
 				"parentContainer":settings["targetContainer"],
 				"loadOrder":settings["loadOrder"]
 			});
@@ -306,7 +306,7 @@ function loadSecondaryRatingIndividual (content, options) {
 			$container.find(defaultFormLabelTextContainer).andSelf().filter(defaultFormLabelTextContainer).text(settings["inputSettings"]["inputLabel"]);
 			// add input template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			loadRatingRadioInputGroup (content, {
+			loadRadioRatingInputGroup (content, {
 				"parentContainer":settings["targetContainer"],
 				"loadOrder":settings["loadOrder"]
 			});
@@ -352,7 +352,7 @@ function loadIsRecommendedInput (content, options) {
 			$container.find(defaultFormLabelTextContainer).andSelf().filter(defaultFormLabelTextContainer).text(settings["inputSettings"]["inputLabel"]);
 			// add input template
 			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			loadRadioInputGroup (content["Data"]["Fields"][fieldName], {
+			loadRadioGeneralInputGroup (content["Data"]["Fields"][fieldName], {
 				"parentContainer":settings["targetContainer"],
 				"loadOrder":settings["loadOrder"]
 			});
@@ -363,7 +363,8 @@ function loadIsRecommendedInput (content, options) {
 	});
 }
 
-function loadRadioInputGroup (content, options) {
+// loads normal radio buttons
+function loadRadioGeneralInputGroup (content, options) {
 	// content expected ["Data"]["Fields"][<fieldname>]
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer, // needs to be given a more specific container if called more than once
@@ -411,7 +412,8 @@ function loadRadioInputGroup (content, options) {
 	});
 }
 
-function loadRatingRadioInputGroup (content, options) {
+// load star rating radio buttons
+function loadRadioRatingInputGroup (content, options) {
 	// content expected ["Data"]["Fields"][<fieldname>]
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer, // needs to be given a more specific container if called more than once
@@ -460,6 +462,7 @@ function loadRatingRadioInputGroup (content, options) {
 	});
 }
 
+// load an individual radio button
 function loadRadioInputIndividual (content, options) {
 	// content expected ["Data"]["Fields"][<fieldname>]
 	var settings = $.extend(true, {
@@ -1116,7 +1119,7 @@ function loadContextDataValueIndividualInput (content, options) {
 					};
 				});
 				// load radio buttons
-				loadRadioInputGroup (content, {
+				loadRadioGeneralInputGroup (content, {
 					"parentContainer":$container,
 					"targetContainer":defaultFormInputWrapperContainer,
 					"loadOrder":defaultLoadOrder
