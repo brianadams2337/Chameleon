@@ -40,27 +40,7 @@ function returnToPage (url) {
 }
 
 function submitForm (action, form, productId) {
-	$("#BVSubmissionContainerIDtest1").validate({
-		invalidHandler: function(event, validator) {
-			// 'this' refers to the form
-			var errors = validator.numberOfInvalids();
-			console.log("testing", errors);
-			if (errors) {
-				var message = errors == 1
-				? 'You missed 1 field. It has been highlighted'
-				: 'You missed ' + errors + ' fields. They have been highlighted';
-				$(".BVSectionErrorContainer").html(message);
-				$(".BVSectionErrorContainer").show();
-				console.log('error');
-			} else {
-				$(".BVSectionErrorContainer").hide();
-				console.log('no errors');
-			}
-		},
-		submitHandler: function(form) {
-			$(form).append("<input type='hidden' name='Action' value='" + action + "' />").append("<input type='hidden' name='ProductId' value='" + productId + "' />").submit();
-		}
-	});
+	$(form).append("<input type='hidden' name='Action' value='" + action + "' />").append("<input type='hidden' name='ProductId' value='" + productId + "' />").submit();
 }
 
 
