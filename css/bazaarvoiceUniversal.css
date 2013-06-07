@@ -52,10 +52,10 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	.BVButtonWrapper a {display: inline-block; padding: 7px 15px; font-size: 13px; font-weight: bold; color: #333; text-shadow: 0 1px 0 rgba(255,255,255,0.9); white-space: nowrap; background-color: #eaeaea; background-image: -moz-linear-gradient(#fafafa, #eaeaea); background-image: -webkit-linear-gradient(#fafafa, #eaeaea); background-image: linear-gradient(#fafafa, #eaeaea); background-repeat: repeat-x; border-radius: 3px; border: 1px solid #ddd; border-bottom-color: #c5c5c5; box-shadow: 0 1px 3px rgba(0,0,0,0.05); vertical-align: middle; cursor: pointer; text-decoration: none;}
 
 /* Ratings */
-.BVSecondaryRatingContainer {}
+.BVSecondaryRatingContainer {width: 123px;}
 .BVSecondaryRatingContainer:after {content: "."; height: 0; width: 0; visibility: hidden; display: block; clear: both;}
 	.BVSecondaryRatingContainer ._BVRatingLabelText {display: block;}
-	.BVSecondaryRatingContainer ._BVRatingStarsContainer {width: 101px; min-width: 75px; height: auto; display: block;}
+	.BVSecondaryRatingContainer ._BVRatingStarsContainer {display: block;}
 	.BVSecondaryRatingContainer .BVRatingOutOfContainer {display: none;}
 
 /* QuickTake */
@@ -104,14 +104,14 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 
 /* Media UGC */
 ._BVPhotoGroupContainer {}
-	._BVPhotoThumbnail {width: 50px; height: 50px; display: block; overflow: hidden; float: left; clear: none; margin: 0 10px 10px 0;}
-		._BVPhotoThumbnail img {width: 125px; margin-left: -25px; display: block;}
+	._BVPhotoThumbnail, ._BVVideoThumbnail {width: 50px; height: 50px; display: block; overflow: hidden; float: left; clear: none; margin: 0 10px 10px 0;}
+		._BVPhotoThumbnail img, ._BVVideoThumbnail img {width: 125px; margin-left: -25px; display: block;}
 
 /* Helpfulness Voting */
 ._BVFeedbackContainer {clear: both; margin: 10px 0;}
 ._BVFeedbackContainer:after {content: "."; height: 0; width: 0; visibility: hidden; display: block; clear: both;}
 	._BVFeedbackCountContainer {color: #666; margin-bottom: 10px;}
-	.BVFeedbackVotingPrefix {float: left; line-height: 30px; margin-right: 10px;}
+	.BVFeedbackVotingPrefix {float: left; line-height: 35px; margin-right: 10px;}
 		._BVFeedbackVotingContainer .BVButtonWrapper {float: left; margin-right: 10px;}
 
 
