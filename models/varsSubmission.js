@@ -27,9 +27,10 @@ var defaultAdditionalFieldIndividualInputContainer = "._BVAdditionalFieldIndivid
 var defaultFormInputContainer = "._BVFormInput"; // form input container
 var defaultFormInputWrapperContainer = "._BVFormInputWrapper"; // form input wrapper container
 
-var defaultRadioButtonGroupInputContainer = "._BVRadioButtonGroupContainer"; // radio button group container
+var defaultRadioButtonGroupInputContainer = "._BVInputGroupContainer"; // radio button group container
 var defaultRadioButtonIndividualInputContainer = "._BVRadioButtonIndividualContainer"; // radio button individual container
-var defaultCheckboxGroupInputContainer = "._BVCheckboxGroupContainer"; // checkbox group container
+var defaultCheckboxGroupInputContainer = "._BVInputGroupContainer"; // checkbox group container
+var defaultCheckboxIndividualInputContainer = "._BVCheckboxIndividualContainer"; // checkbox group container
 var defaultFormSelectInputContainer = "._BVFormSelectInput"; // select input
 var defaultFormSelectOptionInputContainer = "._BVFormSelectOptionInput"; // option input
 

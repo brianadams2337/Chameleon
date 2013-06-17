@@ -40,6 +40,7 @@ function returnToPage (url) {
 }
 
 function submitForm (action, form, productId) {
+	$("#title").parsley( 'validate' );
 	$(form).append("<input type='hidden' name='Action' value='" + action + "' />").append("<input type='hidden' name='ProductId' value='" + productId + "' />").submit();
 }
 
