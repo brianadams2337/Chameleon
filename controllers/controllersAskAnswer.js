@@ -6,13 +6,25 @@ function loadQuestionAnswer (content, options) {
 		"targetContainer":defaultQuestionAnswerBodyContainer,
 		"viewContainer":defaultQuestionAnswerContainerView,
 		"loadOrder":"",
-		"productId":""
+		"productId":"",
+		"modelLocalDefaultSettings":""
 	}, options);
-	$(settings["targetContainer"]).hide();
+	// hide the target container while reviews are loading
+	$(settings["targetContainer"]).empty().hide();
+	// set variables
+	//var questionsStatisticsToLoad = content["Includes"]["Products"][settings["productId"]]['ReviewStatistics'];
+	var questionsToLoad = content["Results"];
+	/*
+	// load quick take
+	loadQuickTake (reviewsStatisticsToLoad, {
+		"productId":settings["productId"]
+	});
+	*/
+	// load questions
 	$.when(
-		$.each(content, function(key) {
+		$.each(questionsToLoad, function(key) {
 			// get a new id for the QA container using question id - this will be needed for reference on child elements
-			var newID = "BVQuestionAnswerContainer" + content[key]["Id"];
+			var newID = "BVQuestionAnswerContainer" + questionsToLoad[key]["Id"];
 			$.ajax({
 				url: settings["viewContainer"],
 				type: 'GET',
@@ -25,35 +37,40 @@ function loadQuestionAnswer (content, options) {
 					// add question answer container
 					$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).attr("id", newID));
 					// load question answer content
-					loadQuestionTitle (content[key], {
+					loadQuestionTitle (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionBody (content[key], {
+					loadQuestionBody (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionDate (content[key], {
+					loadQuestionDate (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionUserNickname (content[key], {
+					loadQuestionUserNickname (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionUserLocation (content[key], {
+					loadQuestionUserLocation (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionContextDataValues (content[key], {
+					loadQuestionContextDataValues (questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionTagGroups(content[key], {
+					loadQuestionTagGroups(questionsToLoad[key], {
 						"parentContainer":$container
 					});					
-					loadQuestionAdditionalFieldsGroups(content[key], {
+					loadQuestionAdditionalFieldsGroups(questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionPhotos(content[key], {
+					loadQuestionPhotos(questionsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadQuestionFeedback(content[key], {
-						"parentContainer":$container
+					loadFeedback(questionsToLoad[key], {
+						"parentContainer":$container,
+						"productId":settings["productId"],
+						"contentId":questionsToLoad[key]["Id"],
+						"feedbackSettings":{
+							"contentType":"question"
+						}
 					});
 				},
 				error: function(e) {
@@ -62,8 +79,23 @@ function loadQuestionAnswer (content, options) {
 			});
 		})
 	).done(function(){
+		// all functions pertaining to questions as a group here
+		// show target container once reviews are finished loading
 		$(settings["targetContainer"]).show();
+		// pagination
+		loadNumberedPagination (content, {
+			"parentContainer":defaultQuestionAnswerParentContainer,
+			"targetContainer":defaultQuestionAnswerBodyContainer,
+			"viewReloadOptions":{
+				"model":getQuestionsCustom,
+				"modelSettings":settings["modelLocalDefaultSettings"],
+				"controller":loadQuestionAnswer,
+				"controllerSettings":settings
+			}
+		});
+		// remove loading styling (animated gif, etc.)
 		$(settings["parentContainer"]).removeClass("_BVContentLoadingContainer");
+		// set classes
 		addOddEvenClasses (defaultQuestionAnswerContainer);
 		addFirstLastClasses (defaultQuestionAnswerContainer);
 	});
@@ -460,149 +492,6 @@ function loadQuestionVideos (content, options) {
 				defaultAjaxErrorFunction(e);
 			}
 		});
-	});
-}
-
-/* HELPFULNESS */
-
-function loadQuestionFeedback (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultQuestionAnswerParentContainer,
-		"targetContainer":defaultQuestionFeedbackContainer,
-		"viewContainer":defaultQuestionFeedbackContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// add feedback container template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			loadQuestionFeedbackCount (content, {
-				"parentContainer":$container
-			});
-			loadQuestionFeedbackVoting (content, {
-				"parentContainer":$container
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadQuestionFeedbackCount (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultQuestionAnswerParentContainer,
-		"targetContainer":defaultQuestionFeedbackCountContainer,
-		"viewContainer":defaultQuestionFeedbackCountContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set text variables
-			var feedbackPositive = content["TotalPositiveFeedbackCount"];
-			var feedbackNegative = content["TotalNegativeFeedbackCount"];
-			var feedbackTotal = content["TotalFeedbackCount"];
-			var feedbackPositivePercentage = (feedbackPositive/feedbackTotal);
-			var feedbackNegativePercentage = (feedbackNegative/feedbackTotal);
-			var feedbackPositivePercentageFormatted = convertDecimalToPercentage(feedbackPositivePercentage);
-			var feedbackNegativePercentageFormatted = convertDecimalToPercentage(feedbackNegativePercentage);
-			// set class variables
-			var valueClass = "BVFeedback";
-			// set positive count value
-			$container.find(defaultQuestionFeedbackCountPositiveContainer).andSelf().filter(defaultQuestionFeedbackCountPositiveContainer).text(feedbackPositive);
-			// set total count value
-			$container.find(defaultQuestionFeedbackCountTotalContainer).andSelf().filter(defaultQuestionFeedbackCountTotalContainer).text(feedbackTotal);
-			// set percentage value
-			$container.find(defaultQuestionFeedbackCountPercentageContainer).andSelf().filter(defaultQuestionFeedbackCountPercentageContainer).text(feedbackPositivePercentageFormatted);
-			// add CDVs container template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadQuestionFeedbackVoting (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultQuestionAnswerParentContainer,
-		"targetContainer":defaultQuestionFeedbackVotingContainer,
-		"viewContainer":defaultQuestionFeedbackVotingContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set text variables
-			var feedbackCountPositive = content["TotalPositiveFeedbackCount"];
-			var feedbackCountNegative = content["TotalNegativeFeedbackCount"];
-			// set class variables
-			var valueClass = "BVFeedbackButton";
-			// add feedback container
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			// load positive feedback button
-			loadQuestionFeedbackVotingButton("helpful " + feedbackCountPositive, {
-				"parentContainer":settings["targetContainer"],
-				"targetContainer":defaultQuestionFeedbackVotingButtonPositiveContainer
-			});
-			// load negative feedback button
-			loadQuestionFeedbackVotingButton("unhelpful " + feedbackCountNegative, {
-				"parentContainer":settings["targetContainer"],
-				"targetContainer":defaultQuestionFeedbackVotingButtonNegativeContainer
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadQuestionFeedbackVotingButton (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultQuestionAnswerParentContainer,
-		"targetContainer":defaultQuestionFeedbackVotingButtonContainer,
-		"viewContainer":defaultButtonContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set attributes and text for button
-			$container.find("a").andSelf().filter("a").attr({
-				"id":"",
-				"title":"",
-				"onclick":"",
-				"href":"submission.html"
-			}).find(defaultButtonTextContainer).andSelf().filter(defaultButtonTextContainer).text(content);
-			// add button template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
-			// set return url cookie
-			$.cookie("returnURL", $(location).attr("href"), {
-				expires: 7,
-				path: "/"
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
 	});
 }
 

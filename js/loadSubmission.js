@@ -22,14 +22,14 @@ $(document).ready(function() {
 			$.getScript(siteBaseURL + "js/jquery.min.1.9.1.js"),
 			$.getScript(siteBaseURL + "js/createHTML5Elements.js"),
 			/* controllers */
-			$.getScript(siteBaseURL + "controllers/functionsGlobal.js"),
-			$.getScript(siteBaseURL + "controllers/functionsLoadSubmission.js"),
+			$.getScript(siteBaseURL + "controllers/controllersGlobal.js"),
+			$.getScript(siteBaseURL + "controllers/controllersSubmission.js"),
 			/* models */
 			$.getScript(siteBaseURL + "models/varsGlobal.js"),
 			$.getScript(siteBaseURL + "models/varsReviews.js"),
 			$.getScript(siteBaseURL + "models/varsSubmission.js"),
-			$.getScript(siteBaseURL + "models/apiCallsGlobal.js"),
-			$.getScript(siteBaseURL + "models/apiCallsReviewsSubmission.js"),
+			$.getScript(siteBaseURL + "models/modelsGlobal.js"),
+			$.getScript(siteBaseURL + "models/modelsReviewsSubmission.js"),
 			/* plugins */
 			$.getScript(siteBaseURL + "js/plugins/jquery.cookie.js"),
 			$.getScript(siteBaseURL + "js/plugins/jquery.dateFormat.js"),

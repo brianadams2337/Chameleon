@@ -7,14 +7,16 @@ function getSpecificReviews (reviewIDs, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack();
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -36,14 +38,16 @@ function getAllReviews (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack(data["Results"]);
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -62,14 +66,16 @@ function getReviewsStats (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack(data["Includes"]["Products"][productID]['ReviewStatistics']);
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -87,14 +93,16 @@ function getFeaturedReviews (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack();
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -112,14 +120,16 @@ function getPhotoReviews (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack();
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -138,14 +148,16 @@ function getFeaturedPhotoReviews (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack();
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -162,14 +174,16 @@ function getReviewsCustom (productID, callBack, options) {
 			}
 		}
 	}, options);
-	var url = reviewsAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack();
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -179,15 +193,14 @@ function getReviewsCustom (productID, callBack, options) {
 
 function reviewsAPICall (options) {
 
-	var defaultSettings = $.extend({
+	var defaultSettings = $.extend(true, {
 		"URL":{
 			"BaseURL":apiBaseURL,
 			"CustomerName":apiDefaults["customerName"],
-			"ApiVersion":apiDefaults["apiVersion"], //The API version.
-			"Format":apiDefaults["format"], //Response format (xml or json)
-			"PassKey":apiDefaults["passkey"], //API key is required to authenticate API user and check permission to access particular client's data.
+			"Format":apiDefaults["format"] //Response format (xml or json)
 		},
 		"Parameters":{
+			"ApiVersion":apiDefaults["apiVersion"], //The API version.
 			"Attributes":null, // Attributes to be included when returning content. For example, if includes are requested along with the &attributes=ModeratorCodes parameter, both the includes and the results will contain moderator codes. In order to filter by ModeratorCode, you must request the ModeratorCodes attribute parameter.
 			"Callback":null, // Callback function name (JsonP).
 			"ExcludeFamily":null, // Boolean flag indicating whether to exclude content from other products in the same family as the requested product. For example, "&filter=productid:eq:1101&excludeFamily=true" limits returned content to just that of product 1101 and not any of the products in the same family. If a value is not defined, content on all products in the family will be returned.
@@ -230,6 +243,7 @@ function reviewsAPICall (options) {
 			"Limit_[TYPE]":null, // Limit option for the nested content type returned. TYPE can be any nested content. i.e. Comments for Reviews. An error is returned if the value passed exceeds 20.
 			"Locale":null, // Locale to display Labels, Configuration, Product Attributes and Category Attributes in. The default value is the locale defined in the display associated with the API key.
 			"Offset":apiDefaults["offset"], // Index at which to return results. By default, indexing begins at 0 when you issue a query. Using Limit=100, Offset=0 returns results 0-99. When changing this to Offset=1, results 1-100 are returned.
+			"PassKey":apiDefaults["passkey"], //API key is required to authenticate API user and check permission to access particular client's data.
 			"Search":null, // Full-text search string used to find UGC. For more information about what fields are searched by default, see the API Basics page.
 			"Search_[TYPE]":null, // Searching option for included content followed by full-text search string. See the API Basics page for examples of searching for included data.
 			"Sort":{ // Sort criteria for primary content type of the query. Sort order is required (asc or desc). Multi-attribute sorting for each content/subject type is supported.
@@ -268,11 +282,15 @@ function reviewsAPICall (options) {
 	}, options);
 
 	// set URL base for API call
-	var url = "http://" + defaultSettings["URL"]["CustomerName"] + "." + defaultSettings["URL"]["BaseURL"] + "reviews." + defaultSettings["URL"]["Format"] + "?apiversion=" + defaultSettings["URL"]["ApiVersion"] + "&passkey=" + defaultSettings["URL"]["PassKey"];
+	var url = "http://" + defaultSettings["URL"]["CustomerName"] + "." + defaultSettings["URL"]["BaseURL"] + "data/" + "reviews." + defaultSettings["URL"]["Format"];
 	
-	// add parameters to url
-	url = addAPIParameters(url, defaultSettings["Parameters"]);
+	// set URL parameters for API call
+	var params = defaultSettings["Parameters"];
 
-	return url;
+	// create array with url and parameters
+	var apiCall = {"url":url, "params":params};
+
+	// return the API call
+	return apiCall;
 
 };

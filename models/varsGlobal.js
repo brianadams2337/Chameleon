@@ -5,10 +5,12 @@ var stagingURL = "http://localhost:8888/Chameleon/";
 // url pate for production site
 var productionURL = "http://localhost:8888/Chameleon/";
 
-// 
+// api parameter deautls
 var apiDefaults = {
-	stagURL: "bazaarvoice.com/bvstaging/data/",
-	prodURL: "bazaarvoice.com/data/",
+	stagURL: "bazaarvoice.com/bvstaging/",
+	prodURL: "bazaarvoice.com/",
+	stagSubmissionURL: "stg.api.bazaarvoice.com/",
+	prodSubmissionURL: "api.bazaarvoice.com/",
 	customerName: "bvpstemplates.ugc",
 	format: "json",
 	apiVersion: "5.4",
@@ -33,8 +35,10 @@ var production = false;
 var apiBaseURL;
 	if (production) {
 		apiBaseURL = apiDefaults["prodURL"];
+		apiBaseSubmissionURL = apiDefaults["prodSubmissionURL"];
 	} else {
 		apiBaseURL = apiDefaults["stagURL"];
+		apiBaseSubmissionURL = apiDefaults["stagSubmissionURL"];
 };
 
 var siteBaseURL;
@@ -43,3 +47,24 @@ var siteBaseURL;
 	} else {
 		siteBaseURL = stagingURL;
 };
+
+
+
+/***** SERVER SIDE URLS *****/
+
+var defaultServerSideLanguage = "php";
+
+var defaultReviewSubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvReviewSubmissionProcess" + "." + defaultServerSideLanguage;
+var defaultReviewCommentSubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvReviewCommentSubmissionProcess" + "." + defaultServerSideLanguage;
+var defaultQuestionSubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvQuestionSubmissionProcess" + "." + defaultServerSideLanguage;
+var defaultAnswerSubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvAnswerSubmissionProcess" + "." + defaultServerSideLanguage;
+var defaultStorySubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvStorySubmissionProcess" + "." + defaultServerSideLanguage;
+var defaultStoryCommentSubmissionFormProcessingFile = defaultServerSideLanguage + "/" + "bvStoryCommentSubmissionProcess" + "." + defaultServerSideLanguage;
+
+var defaultFeedbackFormProcessingFile = defaultServerSideLanguage + "/" + "bvFeedbackProcess" + "." + defaultServerSideLanguage;
+
+var defaultPhotoUploadProcessingFile = defaultServerSideLanguage + "/" + "bvPhotoUploadProcess" + "." + defaultServerSideLanguage;
+var defaultVideoUploadFormProcessingFile = defaultServerSideLanguage + "/" + "bvVideoUploadProcess" + "." + defaultServerSideLanguage;
+
+
+

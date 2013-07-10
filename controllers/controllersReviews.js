@@ -6,13 +6,26 @@ function loadReviews (content, options) {
 		"targetContainer":defaultReviewsBodyContainer,
 		"viewContainer":defaultReviewContainerView,
 		"loadOrder":"",
-		"productId":""
+		"productId":"",
+		"modelLocalDefaultSettings":""
 	}, options);
-	$(settings["targetContainer"]).hide();
+	// hide the target container while reviews are loading
+	$(settings["targetContainer"]).empty().hide();
+	// set variables
+	var reviewsStatisticsToLoad = content["Includes"]["Products"][settings["productId"]]['ReviewStatistics']; // review stats
+	var reviewsToLoad = content["Results"]; // reviews
+
+	// load quick take
+	loadQuickTake (reviewsStatisticsToLoad, {
+		"productId":settings["productId"]
+	});
+
+	// load reviews
 	$.when(
-		$.each(content, function(key) {
+		// all functions pertaining to individual reviews here
+		$.each(reviewsToLoad, function(key) {
 			// get a new id for the review container using review id - this will be needed for reference on child elements
-			var newID = "BVReviewContainer" + content[key]["Id"];
+			var newID = "BVReviewContainer" + reviewsToLoad[key]["Id"];
 			$.ajax({
 				url: settings["viewContainer"],
 				type: 'GET',
@@ -25,44 +38,49 @@ function loadReviews (content, options) {
 					// add review container
 					$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($($container).attr("id", newID));
 					// load review content
-					loadReviewRating (content[key], {
+					loadReviewRating (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewSecondaryRatings (content[key], {
+					loadReviewSecondaryRatings (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewRecommended (content[key], {
+					loadReviewRecommended (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewDate (content[key], {
+					loadReviewDate (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewTitle (content[key], {
+					loadReviewTitle (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewBody (content[key], {
+					loadReviewBody (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewUserNickname (content[key], {
+					loadReviewUserNickname (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewUserLocation (content[key], {
+					loadReviewUserLocation (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewContextDataValuesGroup (content[key], {
+					loadReviewContextDataValuesGroup (reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewTagGroups(content[key], {
+					loadReviewTagGroups(reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewPhotosGroup(content[key], {
+					loadReviewPhotosGroup(reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewVideosGroup(content[key], {
+					loadReviewVideosGroup(reviewsToLoad[key], {
 						"parentContainer":$container
 					});
-					loadReviewFeedback(content[key], {
-						"parentContainer":$container
+					loadFeedback(reviewsToLoad[key], {
+						"parentContainer":$container,
+						"productId":settings["productId"],
+						"contentId":reviewsToLoad[key]["Id"],
+						"feedbackSettings":{
+							"contentType":"review"
+						}
 					});
 				},
 				error: function(e) {
@@ -71,8 +89,41 @@ function loadReviews (content, options) {
 			});
 		})
 	).done(function(){
+		// all functions pertaining to reviews as a group here
+		// show target container once reviews are finished loading
 		$(settings["targetContainer"]).show();
+		// pagination
+		loadNumberedPagination (content, {
+			"parentContainer":defaultReviewsParentContainer,
+			"targetContainer":defaultReviewsBodyContainer,
+			"viewReloadOptions":{
+				"model":getReviewsCustom,
+				"modelSettings":settings["modelLocalDefaultSettings"],
+				"controller":loadReviews,
+				"controllerSettings":settings
+			}
+		});
+/*
+		// filters
+		loadFiltersGroup (content, {
+			"parentContainer":defaultQuickTakeContainer,
+			"targetContainer":"_BVFiltersContainer",
+			"filterSettings":{
+				"offset":content["Offset"],
+				"limit":content["Limit"],
+				"totalResults":content["TotalResults"]
+			},
+			"viewReloadOptions":{
+				"model":getReviewsCustom,
+				"modelSettings":settings["modelLocalDefaultSettings"],
+				"controller":loadReviews,
+				"controllerSettings":settings
+			}
+		});
+*/
+		// remove loading styling (animated gif, etc.)
 		$(settings["parentContainer"]).removeClass("_BVContentLoadingContainer");
+		// set classes
 		addOddEvenClasses (defaultReviewContainer);
 		addFirstLastClasses (defaultReviewContainer);
 	});
@@ -98,13 +149,13 @@ function loadQuickTake (content, options) {
 				var $container = $(container);
 				$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
 				loadReviewRatingAverage (content, {
-					"parentContainer":settings["targetContainer"]
+					"parentContainer":$container
 				});
 				loadReviewRecommendedAverage (content, {
-					"parentContainer":settings["targetContainer"]
+					"parentContainer":$container
 				});
 				loadWriteReviewButton ("Write a Review", {
-					"parentContainer":settings["targetContainer"],
+					"parentContainer":$container,
 					"productId":settings["productId"]
 				});
 			},
@@ -701,175 +752,6 @@ function loadReviewVideosGroup (content, options) {
 	});
 }
 
-/* HELPFULNESS */
-
-function loadReviewFeedback (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultReviewsParentContainer,
-		"targetContainer":defaultReviewFeedbackContainer,
-		"viewContainer":defaultReviewFeedbackContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// add feedback container template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			// load feedback count
-			loadReviewFeedbackCount (content, {
-				"parentContainer":$container
-			});
-			// load feedback voting
-			loadReviewFeedbackVoting (content, {
-				"parentContainer":$container
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadReviewFeedbackCount (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultReviewsParentContainer,
-		"targetContainer":defaultReviewFeedbackCountContainer,
-		"viewContainer":defaultReviewFeedbackCountContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set text variables
-			var feedbackPositive = content["TotalPositiveFeedbackCount"];
-			var feedbackNegative = content["TotalNegativeFeedbackCount"];
-			var feedbackTotal = content["TotalFeedbackCount"];
-			var feedbackPositivePercentage = (feedbackPositive/feedbackTotal);
-			var feedbackNegativePercentage = (feedbackNegative/feedbackTotal);
-			var feedbackPositivePercentageFormatted = convertDecimalToPercentage(feedbackPositivePercentage);
-			var feedbackNegativePercentageFormatted = convertDecimalToPercentage(feedbackNegativePercentage);
-			// set class variables
-			var valueClass = "BVFeedback";
-			// set positive count value
-			$container.find(defaultReviewFeedbackCountPositiveContainer).andSelf().filter(defaultReviewFeedbackCountPositiveContainer).text(feedbackPositive);
-			// set total count value
-			$container.find(defaultReviewFeedbackCountTotalContainer).andSelf().filter(defaultReviewFeedbackCountTotalContainer).text(feedbackTotal);
-			// set percentage value
-			$container.find(defaultReviewFeedbackCountPercentageContainer).andSelf().filter(defaultReviewFeedbackCountPercentageContainer).text(feedbackPositivePercentageFormatted);
-			// add feedback count container template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadReviewFeedbackVoting (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultReviewsParentContainer,
-		"targetContainer":defaultReviewFeedbackVotingContainer,
-		"viewContainer":defaultReviewFeedbackVotingContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set text variables
-			var feedbackCountPositive = content["TotalPositiveFeedbackCount"];
-			var feedbackCountNegative = content["TotalNegativeFeedbackCount"];
-			// set class variables
-			var valueClass = "BVFeedbackButton";
-			// add feedback voting container
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).append($container);
-			// load positive feedback button
-			loadReviewFeedbackVotingButton("helpful " + feedbackCountPositive, {
-				"parentContainer":settings["targetContainer"],
-				"targetContainer":defaultReviewFeedbackVotingButtonPositiveContainer
-			});
-			// load negative feedback button
-			loadReviewFeedbackVotingButton("unhelpful " + feedbackCountNegative, {
-				"parentContainer":settings["targetContainer"],
-				"targetContainer":defaultReviewFeedbackVotingButtonNegativeContainer
-			});
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadReviewFeedbackVotingButton (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultReviewsParentContainer,
-		"targetContainer":defaultReviewFeedbackVotingButtonContainer,
-		"viewContainer":defaultButtonContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set attributes and text for button
-			$container.find("a").andSelf().filter("a").attr({
-				"id":"",
-				"title":"",
-				"onclick":"return false;",
-				"href":""
-			}).find(defaultButtonTextContainer).andSelf().filter(defaultButtonTextContainer).text(content);
-			// add button template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
-
-function loadReviewReportInappropriate (content, options) {
-	var settings = $.extend(true, {
-		"parentContainer":defaultReviewsParentContainer,
-		"targetContainer":defaultReviewReportInappropriateContainer,
-		"viewContainer":defaultReviewReportInappropriateContainerView,
-		"loadOrder":"",
-		"productId":""
-	}, options);
-	$.ajax({
-		url: settings["viewContainer"],
-		type: 'GET',
-		dataType: 'html',
-		success: function(container) {
-			var $container = $(container);
-			// set attributes and text for button
-			$container.find("a").andSelf().filter("a").attr({
-				"id":"",
-				"title":"",
-				"onclick":"return false;",
-				"href":""
-			}).find(defaultButtonTextContainer).andSelf().filter(defaultButtonTextContainer).text(content);
-			// add button template
-			$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).html($container);
-		},
-		error: function(e) {
-			defaultAjaxErrorFunction(e);
-		}
-	});
-}
 
 
 

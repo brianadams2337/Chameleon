@@ -3,14 +3,17 @@
 (function($) {
 // extend the jQuery
 	$.fn.bvPaginate = function (container,options) {
-		
+		console.log('test');
 		/* VARIABLES */
 		
 		// set defaults for options variable
-		options = jQuery.extend({
-			itemsPerPage:10,
-			startItem:0,
-			startPage:1,
+		var settings = $.extend(true, {
+			"parentContainer":"",
+			"targetContainer":"",
+			"viewContainer":"",
+			"Offset":0,
+			"Limit":10,
+			"TotalResults":256,
 			btnsDisplayed:7,
 			prevBtn:true,
 			prevBtnTxt:'&laquo;',
@@ -20,9 +23,9 @@
 			firstBtnTxt:'First',
 			lastBtn:true,
 			lastBtnTxt:'Last',
-			showPageTotal:true,
-		},options||{});
-		
+			showPageTotal:true
+		}, options);
+/*
 		// attach data to the object
 		if (!(this.data('pageContainerPath'))) {
 			var pageContainerPath = container;
@@ -39,9 +42,10 @@
 		if (!(this.data('currentPage'))) {
 			this.data('currentPage',options.startPage);
 		}		
-		
+		*/
 		// get total amount of pages and set variable
-		var totalPages = Math.ceil(this.data('contentArray').length/this.data('options')['itemsPerPage']);
+		var pageCount = Math.ceil(settings["TotalResults"]/settings["Limit"]);
+		console.log(pageCount);
 		
 		/* CREATE BUTTON NAVIGATION */
 		
@@ -61,11 +65,11 @@
 		// create container for number links
 		$(pageContainerPath).parent('table').next().append($('<span />').addClass('pageNumbers'));
 		// create numbered page butons
-		for (i=1;i<=totalPages;i++) {
+		for (i=1;i<=pageCount;i++) {
 			$(pageContainerPath).parent('table').next().find('.pageNumbers').append($('<a>'+i+'</a>').addClass('paginationNavBtn').attr('name',i));
-			if (options.showPageTotal && i==totalPages) {
+			if (options.showPageTotal && i==pageCount) {
 				// show the total number of pages if at the end of the loop
-				$(pageContainerPath).parent('table').next().find('.pageNumbers').append('<span>'+' of '+totalPages+'</span>');
+				$(pageContainerPath).parent('table').next().find('.pageNumbers').append('<span>'+' of '+pageCount+'</span>');
 			}
 		}
 		
@@ -169,60 +173,3 @@
 	};
 
 })(jQuery);
-
-$(document).ready(function() {
-
-	/* BUTTON ONCLICK EVENT HANDLER */
-
-	$('.paginationNavBtn').live('click', function() {
-	
-		// get the new page
-		switch ($(this).attr('name')) {
-				
-			// go to first page
-			case 'first' :
-				newPage = 1;
-				break;
-
-			// go to last page
-			case 'last' :
-				newPage = Math.ceil($($(this).closest('.paginationNav').data('pageContainerPath')).data('contentArray').length/$($(this).closest('.paginationNav').data('pageContainerPath')).data('options')['itemsPerPage']);
-				break;
-				
-			// go to previous page
-			case 'previous' :
-				newPage = $($(this).closest('.paginationNav').data('pageContainerPath')).data('currentPage')-1;
-				break;
-				
-			// go to next page
-			case 'next' :
-				newPage = $($(this).closest('.paginationNav').data('pageContainerPath')).data('currentPage')+1;
-				break;
-				
-			// go to the page of number clicked
-			default :
-				newPage = Number($(this).text());
-				
-		}
-			
-		// keep new page from going too low
-		if (newPage < 1) {
-			newPage = 1;
-		}
-
-		// keep new page from going too high
-		if (newPage > (Math.ceil($($(this).closest('.paginationNav').data('pageContainerPath')).data('contentArray').length/$($(this).closest('.paginationNav').data('pageContainerPath')).data('options')['itemsPerPage']))) {
-			newPage = (Math.ceil($($(this).closest('.paginationNav').data('pageContainerPath')).data('contentArray').length/$($(this).closest('.paginationNav').data('pageContainerPath')).data('options')['itemsPerPage']));
-			}
-			
-		// update the current page to the new page
-		$($(this).closest('.paginationNav').data('pageContainerPath')).data('currentPage',newPage);
-
-		/* UPDATE OF CONTENT AND NAVIGATION */
-
-		$($(this).closest('.paginationNav').data('pageContainerPath')).bvPaginate.updateContent($(this).closest('.paginationNav').data('pageContainerPath'),newPage);
-		$($(this).closest('.paginationNav').data('pageContainerPath')).bvPaginate.updateNav($(this).closest('.paginationNav').data('pageContainerPath'),newPage);
-						
-	});
-		
-});

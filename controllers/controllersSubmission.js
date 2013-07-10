@@ -258,7 +258,7 @@ function loadSecondaryRatingGroup (content, options) {
 		"inputSettings":{
 			"inputType":content["Type"],
 			"inputRequired":content["Required"],
-			"SubElements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	$.each(settings["loadOrder"], function(key) {
@@ -856,7 +856,7 @@ function loadAdditionalFieldGroupInput (content, options) {
 		"inputSettings":{
 			"inputType":content["Type"],
 			"inputRequired":content["Required"],
-			"SubElements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	$.each(settings["loadOrder"], function(key) {
@@ -1054,7 +1054,7 @@ function loadContextDataValueGroupInput (content, options) {
 		"inputSettings":{
 			"inputType":content["Type"],
 			"inputRequired":content["Required"],
-			"SubElements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	$.each(settings["loadOrder"], function(key) {
@@ -1261,7 +1261,7 @@ function loadTagGroupInput (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
 		"targetContainer":"._BVTagGroupInputContainer",
-		"viewContainer":pathView('inputTagIndividualContainer.html'),
+		"viewContainer":"views/universal/submission/inputTagIndividualContainer.html",
 		"loadOrder":defaultLoadOrder,
 		"productId":"",
 		"inputSettings":{
@@ -1269,7 +1269,7 @@ function loadTagGroupInput (content, options) {
 			"inputType":content["Type"],
 			"inputLabel":content["Label"],
 			"inputRequired":content["Required"],
-			"inputSubelements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	$.each(settings["loadOrder"], function(key, value) {
@@ -1309,7 +1309,7 @@ function loadTagIndividualInput (content, options) {
 	var settings = $.extend(true, {
 		"parentContainer":defaultSubmissionFormContainer,
 		"targetContainer":"._BVInputGroupContainer",
-		"viewContainer":pathView('inputTagContainer.html'),
+		"viewContainer":"views/universal/submission/inputTagContainer.html",
 		"loadOrder":"",
 		"productId":"",
 		"inputSettings":{
@@ -1317,7 +1317,7 @@ function loadTagIndividualInput (content, options) {
 			"inputType":content["Type"],
 			"inputLabel":content["Label"],
 			"inputRequired":content["Required"],
-			"inputSubelements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	$.each(settings["loadOrder"], function(key, value) {
@@ -1444,7 +1444,7 @@ function loadCheckboxInputGroup (content, options) {
 			"inputType":content["Type"],
 			"inputLabel":content["Label"],
 			"inputRequired":content["Required"],
-			"inputSubelements":content["SubElements"]
+			"inputSubElements":content["SubElements"]
 		}
 	}, options);
 	console.log(settings["inputSettings"]);

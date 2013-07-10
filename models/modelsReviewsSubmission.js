@@ -1,16 +1,20 @@
 // gets review submission form
 function getReviewsSubmissionForm (productID, callBack, options) {
 	var settings = $.extend(true, {
-		"ProductId":productID
+		"Parameters":{
+			"ProductId":productID
+		}
 	}, options);
-	var url = reviewsSubmissionAPICall(settings);
-	console.log(url);
+	var apiCall = reviewsSubmissionAPICall(settings);
+	var url = apiCall["url"];
+	var params = $.param(apiCall["params"]);
 	$.ajax({
 		type: "GET",
 		url: url,
+		data: params,
 		dataType: "jsonp",
 		success: function(data) {
-			callBack(data);
+			callBack(data, settings);
 		},
 		error: function(e) {
 			defaultAjaxErrorFunction(e);
@@ -20,16 +24,14 @@ function getReviewsSubmissionForm (productID, callBack, options) {
 
 function reviewsSubmissionAPICall (options) {
 
-	var defaultSettings = $.extend({
+	var defaultSettings = $.extend(true, {
 		"URL":{
-			"BaseURL":apiBaseURL,
+			"BaseURL":apiBaseSubmissionURL,
 			"CustomerName":apiDefaults["customerName"],
-			"ApiVersion":apiDefaults["apiVersion"], //The API version.
-			"Format":apiDefaults["format"], //Response format (xml or json)
-			"PassKey":apiDefaults["passkey"], //API key is required to authenticate API user and check permission to access particular client's data.
+			"Format":apiDefaults["format"] //Response format (xml or json)
 		},
 		"Parameters":{
-			"ProductId":null, //The id of the product that this content is being submitted on.
+			"ApiVersion":apiDefaults["apiVersion"], //The API version.
 			"Action":null, //The submission action to take -- either 'Preview' or 'Submit'. 'Preview' will show a draft of the content to be submitted; 'Submit' will submit the content. Note that if Action=Submit, the request must be an HTTP POST.
 			"AdditionalField_<Dimension-External-Id>":null, //A concrete example of the parameter might be 'AdditionalField_Seat' with a value of '24F' (describing the seat number at a stadium or on a plane).
 			"AgreedToTermsAndConditions":null, //Boolean indicating whether or not the user agreed to the terms and conditions. Required depending on the client's settings.
@@ -42,8 +44,10 @@ function reviewsSubmissionAPICall (options) {
 			"Locale":null, //Locale to display Labels, Configuration, Product Attributes and Category Attributes in. The default value is the locale defined in the display associated with the API key.
 			"NetPromoterComment":null, //Value is text representing a user comment to explain numerical Net Promoter score.
 			"NetPromoterScore":null, //Value is positive integer between 1 and 10 representing a numerical rating in response to “How would you rate this company?”
+			"PassKey":apiDefaults["passkey"], //API key is required to authenticate API user and check permission to access particular client's data.
 			"PhotoCaption_<n>":null, //Value is caption text for the photo URL with the same value of <n>.
 			"PhotoUrl_<n>":null, //Value is a Bazaarvoice URL of a photo uploaded using the Data API, where <n> is a non-negative integer.
+			"ProductId":null, //The id of the product that this content is being submitted on.
 			"ProductRecommendationId_<n>":null, //Value is non-negative integer representing the product external ID of the <n>'th product recommendation (for Social Recommendations)
 			"Rating":null, //Value is positive integer between 1 and 5, and represents review overall rating. Required depending on client settings.
 			"Rating_<Dimension-External-Id>":null, //A concrete example might be Rating_Quality where the value would represent the user's opinion of the quality of the product. The value is a positive integer between 1 and 5 and represents rating dimension value.
@@ -58,16 +62,20 @@ function reviewsSubmissionAPICall (options) {
 			"UserLocation":null, //User location text
 			"UserNickname":null, //User nickname display text
 			"VideoCaption_<n>":null, //Value is caption text for the video URL with the same value of <n>.
-			"VideoUrl_<n>":null, //Value is valid YouTube or Bazaarvoice video-upload URL where <n> is a non-negative integer.
+			"VideoUrl_<n>":null //Value is valid YouTube or Bazaarvoice video-upload URL where <n> is a non-negative integer.
 		}
 	}, options);
 
 	// set URL base for API call
-	var url = "http://stg.api.bazaarvoice.com/data/submitreview." + defaultSettings["URL"]["Format"] + "?apiversion=" + defaultSettings["URL"]["ApiVersion"] + "&passkey=" + defaultSettings["URL"]["PassKey"] + "&ProductId=" + defaultSettings["Parameters"]["ProductId"];
+	var url = "http://" + defaultSettings["URL"]["BaseURL"] + "data/" + "submitreview." + defaultSettings["URL"]["Format"];
+	
+	// set URL parameters for API call
+	var params = defaultSettings["Parameters"];
 
-	// add parameters to url
-	url = addAPIParameters(url, defaultSettings["Parameters"]);
+	// create array with url and parameters
+	var apiCall = {"url":url, "params":params};
 
-	return url;
+	// return the API call
+	return apiCall;
 
 };

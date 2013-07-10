@@ -113,7 +113,8 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 	._BVFeedbackCountContainer {color: #666; margin-bottom: 10px;}
 	.BVFeedbackVotingPrefix {float: left; line-height: 35px; margin-right: 10px;}
 		._BVFeedbackVotingContainer .BVButtonWrapper {float: left; margin-right: 10px;}
-
+		._BVFeedbackVotingContainer .BVButtonWrapper.selected {opacity: 1;}
+		._BVFeedbackVotingContainer ._BVButton.disabled {opacity: 0.5; cursor: default;}
 
 /* Submission Form */
 
@@ -165,3 +166,8 @@ h1._BVPageHeaderText, h2._BVSectionHeaderText {margin: 10px 0;}
 /* Buttons */
 .BVFieldButtonGroup .BVField {float: left; clear: none; margin-right: 10px;}
 	._BVButtonSubmitContainer a {color: #fff; text-shadow: 0 1px 0 rgba(193,90,24,1); background-color: #EE8A27; background-image: -moz-linear-gradient(#EE8A27, #E86C1F); background-image: -webkit-linear-gradient(#EE8A27, #E86C1F); background-image: linear-gradient(#EE8A27, #E86C1F); border: 1px solid #EE8A27; border-bottom-color: #E86C1F;}
+
+
+/* Pagination */
+._BVPaginationContainer {text-align: center;}
+.BVPaginationBtn {padding: 0 10px; cursor: pointer;}

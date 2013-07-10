@@ -30,7 +30,7 @@ var defaultFormInputWrapperContainer = "._BVFormInputWrapper"; // form input wra
 var defaultRadioButtonGroupInputContainer = "._BVInputGroupContainer"; // radio button group container
 var defaultRadioButtonIndividualInputContainer = "._BVRadioButtonIndividualContainer"; // radio button individual container
 var defaultCheckboxGroupInputContainer = "._BVInputGroupContainer"; // checkbox group container
-var defaultCheckboxIndividualInputContainer = "._BVCheckboxIndividualContainer"; // checkbox group container
+var defaultCheckboxIndividualInputContainer = "._BVCheckboxIndividualContainer"; // checkbox individual container
 var defaultFormSelectInputContainer = "._BVFormSelectInput"; // select input
 var defaultFormSelectOptionInputContainer = "._BVFormSelectOptionInput"; // option input
 
@@ -38,38 +38,3 @@ var defaultFormLabelTextContainer = "._BVLabelText"; // text input label text
 var defaultFormRadioLabelTextContainer = "._BVRadioLabelText"; // radio input label text
 var defaultFormCheckboxLabelTextContainer = "._BVCheckboxLabelText"; // checkbox input label text
 var defaultFormHelperTextContainer = "._BVHelperText"; // input helper text
-
-
-/***** VIEW TEMPLATES *****/
-
-
-var defaultSubmissionFormContainerView = pathView("submissionFormReviewContainer.html");
-
-var defaultSecondaryRatingContainerView = pathView("inputSecondaryRatingContainer.html"); // secondary rating module
-
-var defaultContextDataValueContainerView = pathView("inputContextDataValueContainer.html"); // context data value module
-var defaultAdditionalFieldContainerView = pathView("inputAdditionalFieldsContainer.html"); // additional field module
-
-var defaultInputContainerView = pathView("inputContainer.html"); // generic input module
-
-/* TEXT INPUTS */
-var defaultInputTextFieldContainerView = pathView("inputTextFieldContainer.html"); // text field module
-var defaultInputTextAreaContainerView = pathView("inputTextAreaContainer.html"); // text area module
-
-/* CHECKBOX INPUTS */
-var defaultInputCheckboxGroupContainerView = pathView("inputCheckboxGroupContainer.html"); // checkbox group module
-var defaultInputCheckboxIndividualContainerView = pathView("inputCheckboxIndividualContainer.html"); // checkbox individual module
-var defaultInputCheckboxContainerView = pathView("inputCheckboxContainer.html"); // checkbox input module
-
-/* RADIO INPUTS */
-var defaultInputRadioGroupContainerView = pathView("inputRadioGroupContainer.html"); // radio group module
-var defaultInputRadioIndividualContainerView = pathView("inputRadioIndividualContainer.html"); // radio individual module
-var defaultInputRadioContainerView = pathView("inputRadioContainer.html"); // radio input module
-var defaultInputRadioOverallRatingContainerView = pathView("inputRadioOverallRatingContainer.html"); // overall rating radio input module
-var defaultInputRadioSecondaryRatingContainerView = pathView("inputRadioSecondaryRatingContainer.html"); // secondary rating radio input module
-
-/* SELECT INPUTS (Dropdowns) */
-var defaultInputSelectContainerView = pathView("inputSelectContainer.html"); // select (dropdown) module
-var defaultInputSelectOptionContainerView = pathView("inputSelectOptionContainer.html"); // option (dropdown) module
-
-

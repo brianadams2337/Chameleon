@@ -87,62 +87,6 @@ var defaultButtonSubmitContainer = "._BVButtonSubmitContainer"; // submit button
 var defaultButtonPreviewContainer = "._BVButtonPreviewContainer"; // preview button
 var defaultButtonEditContainer = "._BVButtonEditContainer"; // edit button
 var defaultButtonCancelContainer = "._BVButtonCancelContainer"; // cancel button
+var defaultButtonContainer = "._BVButton"; // button container
 var defaultButtonTextContainer = "._BVButtonText"; // button text
-
-
-/***** VIEW TEMPLATES *****/
-
-
-/* MAIN TEMPLATES */
-var defaultQuickTakeContainerView = pathView("quickTakeContainer.html"); // quick take module
-var defaultReviewContainerView = pathView("reviewContainer.html"); // individual review module
-
-/* HEADERS */
-var defaultPageHeaderContainerView = pathView("headerPageContainer.html"); // page header
-var defaultSectionHeaderContainerView = pathView("headerSectionContainer.html"); // section header
-
-/* RATINGS TEMPLATES */
-var defaultOverallRatingContainerView = pathView("overallRatingContainer.html"); // overall rating module
-var defaultSecondaryRatingIndividualContainerView = pathView("secondaryRatingIndividualContainer.html"); // secondary rating module
-
-/* REVIEW CONTENT */
-var defaultReviewTitleContainerView = pathView("titleContainer.html"); // review title module
-var defaultReviewBodyTextContainerView = pathView("bodyTextContainer.html"); // review text module
-var defaultReviewDateContainerView = pathView("dateContainer.html"); // date module
-var defaultReviewRecommededContainerView = pathView("recommendedContainer.html"); // is recommended module
-
-/* TAGS TEMPLATES */
-var defaultReviewTagsContainerView = pathView("tagGroupContainer.html"); // all tags module
-var defaultReviewTagContainerView = pathView("tagIndividualContainer.html"); // individual tag module
-
-/* NICKNAME TEMPLATES */
-var defaultReviewUserNicknameContainerView = pathView("nicknameContainer.html"); // nickname module
-
-/* LOCATION TEMPLATES */
-var defaultReviewUserLocationContainerView = pathView("locationContainer.html"); // location module
-
-/* CDVs TEMPLATES */
-var defaultReviewContextDataValueContainerView = pathView("contextDataValueIndividualContainer.html"); // context data values module
-
-/* ADDITIONAL FIELDS TEMPLATES */
-var defaultReviewAdditionalFieldContainerView = pathView("additionalFieldIndividualContainer.html"); // additional fields module
-
-/* MEDIA TEMPLATES */
-var defaultReviewPhotoContainerView = pathView("photoThumbnailContainer.html"); // photos module
-var defaultReviewVideoContainerView = pathView("videoThumbnailContainer.html"); // videos module
-
-/* FEEDBACK TEMPLATES */
-var defaultReviewFeedbackContainerView = pathView("feedbackContainer.html"); // all feedback (count and voting) module
-var defaultReviewFeedbackCountContainerView = pathView("feedbackCountContainer.html"); // feedback count module
-var defaultReviewFeedbackVotingContainerView = pathView("feedbackVotingContainer.html"); // feedback voting module
-
-/* INAPPROPRIATE CONTENT TEMPLATES */
-var defaultReviewReportInappropriateContainerView = pathView("reportInappropriateContainer.html"); // inappropriate content module
-
-
-/***** BUTTONS *****/
-
-
-var defaultButtonContainerView = pathView("buttonContainer.html"); // generic button module
-
 
