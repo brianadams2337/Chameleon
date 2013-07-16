@@ -116,6 +116,8 @@ behavior: url(includes/PIE-1.0.0/PIE.htc);
 		._BVFeedbackVotingContainer .BVButtonWrapper.selected {opacity: 1;}
 		._BVFeedbackVotingContainer ._BVButton.disabled {opacity: 0.5; cursor: default;}
 
+._BVReportInappropriateContainer ._BVButton.disabled {opacity: 0.5; cursor: default;}
+
 /* Submission Form */
 
 /* General - Titles, Labels, Values */

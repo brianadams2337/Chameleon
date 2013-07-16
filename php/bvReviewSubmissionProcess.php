@@ -1,10 +1,6 @@
 <?php
 
-	$defaults = array(
-		"ApiVersion" => "5.4",
-		"PassKey" => "56m3b2rfbcquf5j6fejjuu3w",
-		"ProductId" => $_GET['productId']
-	);
+	$defaults = array();
 
 	$fields = array_keys($_POST);
 

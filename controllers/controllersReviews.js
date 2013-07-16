@@ -10,13 +10,14 @@ function loadReviews (content, options) {
 		"modelLocalDefaultSettings":""
 	}, options);
 	// hide the target container while reviews are loading
-	$(settings["targetContainer"]).empty().hide();
+	$(settings["parentContainer"]).find(settings["targetContainer"]).andSelf().filter(settings["targetContainer"]).empty().hide();
 	// set variables
 	var reviewsStatisticsToLoad = content["Includes"]["Products"][settings["productId"]]['ReviewStatistics']; // review stats
 	var reviewsToLoad = content["Results"]; // reviews
 
 	// load quick take
 	loadQuickTake (reviewsStatisticsToLoad, {
+		"parentContainer":settings["parentContainer"],
 		"productId":settings["productId"]
 	});
 
@@ -94,8 +95,8 @@ function loadReviews (content, options) {
 		$(settings["targetContainer"]).show();
 		// pagination
 		loadNumberedPagination (content, {
-			"parentContainer":defaultReviewsParentContainer,
-			"targetContainer":defaultReviewsBodyContainer,
+			"parentContainer":settings["parentContainer"],
+			"targetContainer":settings["targetContainer"],
 			"viewReloadOptions":{
 				"model":getReviewsCustom,
 				"modelSettings":settings["modelLocalDefaultSettings"],

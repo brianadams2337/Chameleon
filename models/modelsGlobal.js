@@ -1,18 +1,18 @@
 function addAPIParameters (url, p) {
 	var url = url
 	$.each (p, function (k, v) {			
-		if (k == "Filter") {
+		if (k == "filter") {
 			$.each (this, function (k, v) {
 				if (!(v == null)) {
-					url += "&Filter=" + k + ":" + v;
+					url += "&filter=" + k + ":" + v;
 				};
 			});
-		} else if (k == "Sort") {
+		} else if (k == "sort") {
 			var i = 1;
 			$.each (this, function (k, v) {
 				if (!(v == null)) {
 					if (i == 1) {
-						url += "&Sort=" + k + ":" + v;
+						url += "&sort=" + k + ":" + v;
 					} else {
 						url += "," + k + ":" + v;
 					};

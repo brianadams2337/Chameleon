@@ -10,14 +10,17 @@ $(document).ready(function() {
 			$.getScript(siteBaseURL + "js/browserSelector.js"),
 			/* controllers */
 			$.getScript(siteBaseURL + "controllers/controllersGlobal.js"),
+			$.getScript(siteBaseURL + "controllers/controllersSubmission.js"),
 			$.getScript(siteBaseURL + "controllers/controllersReviews.js"),
 			$.getScript(siteBaseURL + "controllers/controllersAskAnswer.js"),
 			$.getScript(siteBaseURL + "controllers/controllersFeedback.js"),
+			$.getScript(siteBaseURL + "controllers/controllersPagination.js"),
 			/* models */
 			$.getScript(siteBaseURL + "models/varsTemplates.js"),
 			$.getScript(siteBaseURL + "models/varsReviews.js"),
 			$.getScript(siteBaseURL + "models/varsAskAnswer.js"),
 			$.getScript(siteBaseURL + "models/varsFeedback.js"),
+			$.getScript(siteBaseURL + "models/varsSubmission.js"),
 			$.getScript(siteBaseURL + "models/modelsGlobal.js"),
 			$.getScript(siteBaseURL + "models/modelsReviews.js"),
 			$.getScript(siteBaseURL + "models/modelsAskAnswer.js"),
@@ -26,7 +29,6 @@ $(document).ready(function() {
 			$.getScript(siteBaseURL + "js/plugins/jquery.cookie.js"),
 			$.getScript(siteBaseURL + "js/plugins/jquery.dateFormat.js"),
 			$.getScript(siteBaseURL + "js/plugins/jquery.magnific-popup.js"),
-			$.getScript(siteBaseURL + "js/plugins/jquery.bvPagination.js"),
 			/* LOAD CSS FILES */
 			$("head").append("<link href='" + siteBaseURL + "css/bazaarvoiceUniversal.css' type='text/css' rel='stylesheet' />"),
 			$("head").append("<link href='" + siteBaseURL + "css/magnific-popup.css' type='text/css' rel='stylesheet' />"),
@@ -40,15 +42,17 @@ $(document).ready(function() {
 			getAllReviews (productId, function(content, modelLocalDefaultSettings) {
 				// callback function
 				loadReviews (content, {
+					"parentContainer":"#BVRRContainer",
 					"productId":productId,
 					"modelLocalDefaultSettings":modelLocalDefaultSettings
 				});
 			}, {
 				// api parameters
 				"Parameters":{
-					"Filter":{
-						//"IsFeatured":false,
-						//"HasPhotos":true
+					//"limit":1,
+					"filter":{
+						//"isfeatured":false,
+						"hasphotos":false
 					}
 				}
 			});
@@ -63,9 +67,9 @@ $(document).ready(function() {
 			}, {
 				// api parameters
 				"Parameters":{
-					"Filter":{
-						//"IsFeatured":false,
-						//"HasPhotos":true
+					"filter":{
+						//"isfeatured":false,
+						//"hasphotos":true
 					}
 				}
 			});

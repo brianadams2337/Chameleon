@@ -93,7 +93,7 @@ var defaultFeedbackContainerView = "views/universal/feedback/feedbackContainer.h
 var defaultFeedbackCountContainerView = "views/universal/feedback/feedbackCountContainer.html"; // feedback count module
 var defaultFeedbackVotingContainerView = "views/universal/feedback/feedbackVotingContainer.html"; // feedback voting module
 
-
+var defaultReportInappropriateContainerView = "views/universal/feedback/reportInappropriateContainer.html"; // report inappropriate module
 
 /************************* SUBMISSION ******************************/
 
